@@ -11,9 +11,9 @@ const Footer = () => {
           <div className='vert-line'></div>
           <Link to = "/" className='text-uppercase'>term of service</Link>
           <div className='vert-line'></div>
-          <Link to = "/" className='text-uppercase'>About SnapUp.</Link>
+          <Link to = "/" className='text-uppercase'>About KelaniStore.</Link>
         </div>
-        <span className='text-white copyright-text text-manrope fs-14 fw-3'>&copy; 2022 SnapUp. All Rights Reserved.</span>
+        <span className='text-white copyright-text text-manrope fs-14 fw-3'>&copy; 2023 KelaniStore. All Rights Reserved.</span>
       </div>
     </footer>
   )
