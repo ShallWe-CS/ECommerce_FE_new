@@ -35,7 +35,7 @@ const Navbar = () => {
               <i className='fa-solid fa-bag-shopping'></i>
             </span>
             <span className='navbar-brand-txt mx-2'>
-              <span className='fw-7'>Snap</span>Up.
+              <span className='fw-7'>Kelani</span>Store.
             </span>
           </Link>
         </div>
@@ -70,7 +70,9 @@ const Navbar = () => {
                 <li className='nav-item no-wrap'>
                   <Link className='nav-link text-capitalize'>{<h2>Events</h2>}</Link>
                 </li>
-              
+                <li className='nav-item no-wrap'>
+                  <Link className='nav-link text-capitalize'>{<h2>Sales</h2>}</Link>
+                </li>
           </ul>
         </div>
 
