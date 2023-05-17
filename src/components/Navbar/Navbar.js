@@ -52,23 +52,25 @@ const Navbar = () => {
 
           <ul className='navbar-nav flex align-center fs-12 fw-4 font-manrope'>
             
-              {/* // taking only first 8 categories
-              // categories.slice(0, 8).map((category, idx) => (
-              //   <li className='nav-item no-wrap' key = {idx}>
-              //     <Link to = {`category/${category}`} className='nav-link text-capitalize'>{category.replace("-", " ")}</Link>
-              //   </li>
-              // )) */}
+              {/* {
+              // taking only first 8 categories
+              categories.slice(0, 8).map((category, idx) => (
+                <li className='nav-item no-wrap' key = {idx}>
+                  <Link to = {`category/${category}`} className='nav-link text-capitalize'>{category.replace("-", " ")}</Link>
+                </li>
+              ))
+            } */}
                 <li className='nav-item no-wrap'>
-                  <Link className='nav-link text-capitalize'>{<h2>Shirts</h2>}</Link>
+                  <Link to = {`category/Shirts`} className='nav-link text-capitalize'>{<h2>Shirts</h2>}</Link>
                 </li>
                 <li className='nav-item no-wrap'>
-                  <Link className='nav-link text-capitalize'>{<h2>T-Shirts</h2>}</Link>
+                  <Link to = {`category/t-shirt`} className='nav-link text-capitalize'>{<h2>T-Shirts</h2>}</Link>
                 </li>
                 <li className='nav-item no-wrap'>
-                  <Link className='nav-link text-capitalize'>{<h2>OverSize</h2>}</Link>
+                  <Link to = {`category/OverSize`} className='nav-link text-capitalize'>{<h2>OverSize</h2>}</Link>
                 </li>
                 <li className='nav-item no-wrap'>
-                  <Link className='nav-link text-capitalize'>{<h2>Events</h2>}</Link>
+                  <Link to = {`category/Events`} className='nav-link text-capitalize'>{<h2>Events</h2>}</Link>
                 </li>
                 <li className='nav-item no-wrap'>
                   <Link className='nav-link text-capitalize'>{<h2>Sales</h2>}</Link>

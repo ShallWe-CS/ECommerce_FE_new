@@ -23,6 +23,7 @@ const CategoryProductPage = () => {
         <div className='cat-products-content'>
           <div className='title-md'>
             <h3>See our <span className='text-capitalize'>{category.replace("-", " ")}</span></h3>
+            <h2>products</h2>
           </div>
 
           {
