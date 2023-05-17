@@ -4,7 +4,7 @@ import HeaderSlider from "../../components/Slider/HeaderSlider";
 import { useSelector, useDispatch } from 'react-redux';
 import { getAllCategories } from '../../store/categorySlice';
 import ProductList from "../../components/ProductList/ProductList";
-import { fetchAsyncProducts, getAllProducts, getAllProductsStatus } from '../../store/productSlice';
+import { fetchAsyncProducts, getAllProduct, getAllProductsStatus } from '../../store/productSlice';
 import Loader from "../../components/Loader/Loader";
 import { STATUS } from '../../utils/status';
 import { flexImgs } from "../../utils/images";
@@ -17,7 +17,7 @@ const HomePage = () => {
     dispatch(fetchAsyncProducts(50));
   }, []);
 
-  const products = useSelector(getAllProducts);
+  const products = useSelector(getAllProduct);
   const productStatus = useSelector(getAllProductsStatus);
 
   // randomizing the products in the list

@@ -61,16 +61,16 @@ const Navbar = () => {
               ))
             } */}
                 <li className='nav-item no-wrap'>
-                  <Link to = {`category/Shirts`} className='nav-link text-capitalize'>{<h2>Shirts</h2>}</Link>
+                  <Link to = {`category/shirt`} className='nav-link text-capitalize'>{<h2>Shirts</h2>}</Link>
                 </li>
                 <li className='nav-item no-wrap'>
-                  <Link to = {`category/t-shirt`} className='nav-link text-capitalize'>{<h2>T-Shirts</h2>}</Link>
+                  <Link to = {`category/TS`} className='nav-link text-capitalize'>{<h2>T-Shirts</h2>}</Link>
                 </li>
                 <li className='nav-item no-wrap'>
-                  <Link to = {`category/OverSize`} className='nav-link text-capitalize'>{<h2>OverSize</h2>}</Link>
+                  <Link to = {`category/overSize`} className='nav-link text-capitalize'>{<h2>OverSize</h2>}</Link>
                 </li>
                 <li className='nav-item no-wrap'>
-                  <Link to = {`category/Events`} className='nav-link text-capitalize'>{<h2>Events</h2>}</Link>
+                  <Link to = {`category/events`} className='nav-link text-capitalize'>{<h2>Events</h2>}</Link>
                 </li>
                 <li className='nav-item no-wrap'>
                   <Link className='nav-link text-capitalize'>{<h2>Sales</h2>}</Link>
