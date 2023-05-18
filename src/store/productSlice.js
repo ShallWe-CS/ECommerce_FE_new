@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { BASE_URL } from "../utils/apiURL";
 import { STATUS } from "../utils/status";
-import {getAllProducts} from "../utils/endpoints"
+import {getAllProducts, getSingleProduct} from "../utils/endpoints"
 
 
 const initialState = {
@@ -55,7 +55,7 @@ export const fetchAsyncProducts = createAsyncThunk('products/fetch', async(limit
 
 // getting the single product data also
 export const fetchAsyncProductSingle = createAsyncThunk('product-single/fetch', async(id) => {
-    const response = await fetch(`${BASE_URL}products/${id}`);
+    const response = await fetch(`${getSingleProduct}=${id}`);
     const data = await response.json();
     return data;
 });

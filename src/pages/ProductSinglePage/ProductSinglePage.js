@@ -16,6 +16,7 @@ const ProductSinglePage = () => {
   const productSingleStatus = useSelector(getSingleProductStatus);
   const [quantity, setQuantity] = useState(1);
   const cartMessageStatus = useSelector(getCartMessageStatus);
+  const [url, setUrl] = useState("");
 
   // getting single product
   useEffect(() => {
@@ -57,6 +58,13 @@ const ProductSinglePage = () => {
     dispatch(setCartMessageOn(true));
   }
 
+  console.log("product:",product);
+
+  if(product != null && product) {
+    // setUrl(`data:image/jpg;base64,${product.images[0].img}`);
+    console.log("inside if");
+  }
+
 
   return (
     <main className='py-5 bg-whitesmoke'>
@@ -66,30 +74,32 @@ const ProductSinglePage = () => {
             <div className='product-single-l'>
               <div className='product-img'>
                 <div className='product-img-zoom'>
-                  <img src = {product?(product.images ? product.images[0] : "") : ""} alt = "" className='img-cover' />
+                  <img src = {product?(product.images ? `data:image/jpg;base64,${product.images[0].img}` : "") : ""} alt = "" className='img-cover' />
+                  {/* <img src = {url} alt = "" className='img-cover' /> */}
+
                 </div>
 
                 <div className='product-img-thumbs flex align-center my-2'>
-                  <div className='thumb-item'>
+                  {/* <div className='thumb-item'>
                     <img src = {
-                      product ? (product.images ? product.images[1] : "") : ""
+                      product ? (product.images ? `data:image/jpg;base64,${product.images[1].img}` : "") : ""
+                    } alt = "" className='img-cover' />
+                  </div> */}
+                  {/* <div className='thumb-item'>
+                    <img src = {
+                      product ? (product.images ? `data:image/jpg;base64,${product.images[2].img}` : "") : ""
                     } alt = "" className='img-cover' />
                   </div>
                   <div className='thumb-item'>
                     <img src = {
-                      product ? (product.images ? product.images[2] : "") : ""
+                      product ? (product.images ? `data:image/jpg;base64,${product.images[3].img}` : "") : ""
                     } alt = "" className='img-cover' />
                   </div>
                   <div className='thumb-item'>
                     <img src = {
-                      product ? (product.images ? product.images[3] : "") : ""
+                      product ? (product.images ? `data:image/jpg;base64,${product.images[0].img}` : "") : ""
                     } alt = "" className='img-cover' />
-                  </div>
-                  <div className='thumb-item'>
-                    <img src = {
-                      product ? (product.images ? product.images[4] : "") : ""
-                    } alt = "" className='img-cover' />
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </div>
