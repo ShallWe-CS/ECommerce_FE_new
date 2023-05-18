@@ -7,6 +7,7 @@ import ProductList from "../../components/ProductList/ProductList";
 import { fetchAsyncProducts, getAllProducts, getAllProductsStatus } from '../../store/productSlice';
 import Loader from "../../components/Loader/Loader";
 import { STATUS } from '../../utils/status';
+import { flexImgs } from "../../utils/images";
 
 const HomePage = () => {
   const dispatch = useDispatch();
@@ -46,8 +47,17 @@ const HomePage = () => {
         <div className='container'>
           <div className='categories py-5'>
             <div className='categories-item'>
+              
               <div className='title-md'>
-                <h3>See our products</h3>
+                <h3>Did you know?</h3>
+              </div>
+              <div class="flex-container">
+               <div class="flex-child magenta">
+                  <img src = {flexImgs[0]} alt = "" />
+               </div>
+               <div class="flex-child green">
+                  <img src = {flexImgs[1]} alt = "" />
+               </div>
               </div>
               { productStatus === STATUS.LOADING ? <Loader /> : <ProductList products = {tempProducts} />}
             </div>

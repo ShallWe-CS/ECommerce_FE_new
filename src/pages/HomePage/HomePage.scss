@@ -13,3 +13,21 @@
         }
     }
 }
+
+.flex-container {
+    display: flex;
+}
+
+.flex-child {
+    flex: 1;
+    margin-bottom: 2.8rem;
+    height: 300px;
+    background-color:maroon;
+    overflow-y: hidden;
+} 
+
+.flex-child:first-child {
+    margin-right: 20px;
+    overflow-y: hidden;
+    
+} 
