@@ -46,23 +46,29 @@ const HomePage = () => {
       <div className='main-content bg-whitesmoke'>
         <div className='container'>
           <div className='categories py-5'>
+            
             <div className='categories-item'>
-              
               <div className='title-md'>
                 <h3>Did you know?</h3>
               </div>
-              <div class="flex-container">
-               <div class="flex-child magenta">
+
+              <div class="flex-lists grid">
+               <div class="product-item grid magenta">
                   <img src = {flexImgs[0]} alt = "" />
                </div>
-               <div class="flex-child green">
+               <div class="product-item green">
                   <img src = {flexImgs[1]} alt = "" />
                </div>
+              
+              </div>
+
+              <div className='title-md'>
+                <h3>See our products</h3>
               </div>
               { productStatus === STATUS.LOADING ? <Loader /> : <ProductList products = {tempProducts} />}
             </div>
 
-            <div className='categories-item'>
+            {/* <div className='categories-item'>
               <div className='title-md'>
                 <h3>{categories[0]}</h3>
               </div>
@@ -88,7 +94,7 @@ const HomePage = () => {
                 <h3>{categories[3]}</h3>
               </div>
               {productStatus === STATUS.LOADING ? <Loader /> : <ProductList products={catProductsFour} />}
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
