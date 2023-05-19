@@ -6,14 +6,13 @@ import "./Product.scss";
 const Product = ({product}) => {
 
   const url = `data:image/jpg;base64,${product.images[0].img}`;
-  
 
   return (
     <Link to = {`/product/${product?.id}`} key = {product?.id}>
       <div className='product-item bg-white'>
         <div className='category'>{product?.category}</div>
         <div className='product-item-img'>
-          <img className='img-cover' src = {product?.images[0]} alt = {product.title} />
+          <img className='img-cover' src = {url} alt = {product.title} />
         </div>
         <div className='product-item-info fs-14'>
           <div className='brand'>
