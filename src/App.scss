@@ -3,7 +3,7 @@
 // variables
 $clr-black: #000;
 $clr-white: #fff;
-$clr-orange: #F94E30;
+$clr-orange: #660000;
 $clr-light-orange: #FF6433;
 $clr-light-gray: #F2F2F2;
 $clr-light: #F4F4F4;
@@ -224,7 +224,7 @@ input, textarea, select{
 // liness
 .vert-line{
   width: 2px;
-  background-color: lighten($clr-orange, 10%);
+  background-color: lighten(rgb(246, 221, 38), 10%);
   height: 16px;
   margin: 0 12px;
 }

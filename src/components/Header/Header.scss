@@ -5,7 +5,7 @@
     background: linear-gradient(180deg, rgba(102, 0, 0, 1) 0%, rgba(102, 0, 0, 1) 100%);
 
     .header-cnt-top{
-        border-bottom: 1px solid lighten($clr-orange, 10%);
+        border-bottom: 1px solid lighten(rgb(246, 221, 38), 10%);
     }
 
     @media screen and (max-width: 992px){

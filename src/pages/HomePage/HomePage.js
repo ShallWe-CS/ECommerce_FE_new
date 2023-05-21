@@ -4,9 +4,10 @@ import HeaderSlider from "../../components/Slider/HeaderSlider";
 import { useSelector, useDispatch } from 'react-redux';
 import { getAllCategories } from '../../store/categorySlice';
 import ProductList from "../../components/ProductList/ProductList";
-import { fetchAsyncProducts, getAllProducts, getAllProductsStatus } from '../../store/productSlice';
+import { fetchAsyncProducts, getAllProduct, getAllProductsStatus } from '../../store/productSlice';
 import Loader from "../../components/Loader/Loader";
 import { STATUS } from '../../utils/status';
+import { flexImgs } from "../../utils/images";
 
 const HomePage = () => {
   const dispatch = useDispatch();
@@ -16,7 +17,7 @@ const HomePage = () => {
     dispatch(fetchAsyncProducts(50));
   }, []);
 
-  const products = useSelector(getAllProducts);
+  const products = useSelector(getAllProduct);
   const productStatus = useSelector(getAllProductsStatus);
 
   // randomizing the products in the list
@@ -45,14 +46,29 @@ const HomePage = () => {
       <div className='main-content bg-whitesmoke'>
         <div className='container'>
           <div className='categories py-5'>
+            
             <div className='categories-item'>
+              <div className='title-md'>
+                <h3>Did you know?</h3>
+              </div>
+
+              <div class="flex-lists grid">
+               <div class="product-item grid magenta">
+                  <img src = {flexImgs[0]} alt = "" />
+               </div>
+               <div class="product-item green">
+                  <img src = {flexImgs[1]} alt = "" />
+               </div>
+              
+              </div>
+
               <div className='title-md'>
                 <h3>See our products</h3>
               </div>
               { productStatus === STATUS.LOADING ? <Loader /> : <ProductList products = {tempProducts} />}
             </div>
 
-            <div className='categories-item'>
+            {/* <div className='categories-item'>
               <div className='title-md'>
                 <h3>{categories[0]}</h3>
               </div>
@@ -78,7 +94,7 @@ const HomePage = () => {
                 <h3>{categories[3]}</h3>
               </div>
               {productStatus === STATUS.LOADING ? <Loader /> : <ProductList products={catProductsFour} />}
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
