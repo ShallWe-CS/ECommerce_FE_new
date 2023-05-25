@@ -11,7 +11,7 @@ import store from "./store/store";
 import { Provider } from "react-redux";
 import { oktaConfig } from "./utils/oktaConfig"
 import { OktaAuth } from "@okta/okta-auth-js";
-import { Security} from '@okta/okta-react';
+import { Security, LoginCallback} from '@okta/okta-react';
 import LoginWidget from './components/Auth/LoginWidget';
 import {toRelativeUrl} from "@okta/okta-auth-js"
 
@@ -47,6 +47,7 @@ function App() {
               {/* searched products */}
               <Route path="/search/:searchTerm" element={<Search />} />
               <Route path='/login' element={<LoginWidget config={oktaConfig}/>} />
+              {/* <Route path='/login/callback' Component={LoginCallback} /> */}
             </Routes>
             <Footer />
           </Security>
