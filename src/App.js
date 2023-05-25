@@ -1,6 +1,6 @@
 import './App.scss';
 // react router v6
-import { BrowserRouter, Routes, Route, useNavigate } from 'react-router-dom';
+import { Routes, Route, useNavigate } from 'react-router-dom';
 // pages
 import { Home, CategoryProduct, ProductSingle, Cart, Search } from "./pages/index";
 // components
@@ -11,7 +11,7 @@ import store from "./store/store";
 import { Provider } from "react-redux";
 import { oktaConfig } from "./utils/oktaConfig"
 import { OktaAuth } from "@okta/okta-auth-js";
-import { Security, LoginCallback} from '@okta/okta-react';
+import { Security} from '@okta/okta-react';
 import LoginWidget from './components/Auth/LoginWidget';
 import {toRelativeUrl} from "@okta/okta-auth-js"
 
@@ -46,7 +46,7 @@ function App() {
               <Route path="/cart" element={<Cart />} />
               {/* searched products */}
               <Route path="/search/:searchTerm" element={<Search />} />
-              <Route path='/login'/>
+              <Route path='/login' element={<LoginWidget config={oktaConfig}/>} />
             </Routes>
             <Footer />
           </Security>
