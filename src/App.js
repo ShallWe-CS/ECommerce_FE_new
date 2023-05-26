@@ -2,7 +2,7 @@ import './App.scss';
 // react router v6
 import { Routes, Route, useNavigate } from 'react-router-dom';
 // pages
-import { Home, CategoryProduct, ProductSingle, Cart, Search } from "./pages/index";
+import { Home, CategoryProduct, ProductSingle, Cart, Search, Form } from "./pages/index";
 // components
 import Header from "./components/Header/Header";
 import Sidebar from "./components/Sidebar/Sidebar";
@@ -47,6 +47,7 @@ function App() {
               {/* searched products */}
               <Route path="/search/:searchTerm" element={<Search />} />
               <Route path='/login' element={<LoginWidget config={oktaConfig}/>} />
+              <Route path="/form" element={<Form />} />
               {/* <Route path='/login/callback' Component={LoginCallback} /> */}
             </Routes>
             <Footer />
