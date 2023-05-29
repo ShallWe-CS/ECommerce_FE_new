@@ -15,12 +15,7 @@ const Header = () => {
     if (authState != null && authState.isAuthenticated === true) {
       setIsAuthenticated(true);
     }
-    console.log("1st render");
   });
-
-  console.log(authState);
-
-  console.log(authenticated);
 
   return (
     <header className='header text-white'>

@@ -8,6 +8,7 @@ import { fetchAsyncProducts, getAllProduct, getAllProductsStatus } from '../../s
 import Loader from "../../components/Loader/Loader";
 import { STATUS } from '../../utils/status';
 import { flexImgs } from "../../utils/images";
+import { fetchDataFromApi } from '../../utils/api';
 
 const HomePage = () => {
   const dispatch = useDispatch();
@@ -15,9 +16,16 @@ const HomePage = () => {
 
   useEffect(() => {
     dispatch(fetchAsyncProducts(50));
+    // getProducts();
   }, []);
 
+  // const getProducts = () => {
+  //   console.log("getProducts");
+  //   fetchDataFromApi("/api/products").then((res) => console.log(res));
+  // }
+
   const products = useSelector(getAllProduct);
+  console.log(products);
   const productStatus = useSelector(getAllProductsStatus);
 
   // randomizing the products in the list
