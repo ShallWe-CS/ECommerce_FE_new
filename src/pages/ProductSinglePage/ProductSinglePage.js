@@ -16,7 +16,7 @@ const ProductSinglePage = () => {
   const productSingleStatus = useSelector(getSingleProductStatus);
   const [quantity, setQuantity] = useState(1);
   const cartMessageStatus = useSelector(getCartMessageStatus);
-  const [url, setUrl] = useState("");
+  // const [url, setUrl] = useState();
 
   // getting single product
   useEffect(() => {
@@ -54,17 +54,16 @@ const ProductSinglePage = () => {
     let discountedPrice = (product?.price) - (product?.price * (product?.discountPercentage / 100));
     let totalPrice = quantity * discountedPrice;
 
+    console.log("product: ",product);
     dispatch(addToCart({...product, quantity: quantity, totalPrice, discountedPrice}));
     dispatch(setCartMessageOn(true));
   }
 
-  console.log("product:",product);
-
-  if(product != null && product) {
-    // setUrl(`data:image/jpg;base64,${product.images[0].img}`);
-    console.log("inside if");
-  }
-
+  // if(product.) {
+  //   console.log("product not null");
+  // }
+  
+  // const url = process.env.REACT_APP_DEV_URL + product[0].attributes.images.data[0].attributes.url;
 
   return (
     <main className='py-5 bg-whitesmoke'>
@@ -74,7 +73,7 @@ const ProductSinglePage = () => {
             <div className='product-single-l'>
               <div className='product-img'>
                 <div className='product-img-zoom'>
-                  <img src = {product?(product.images ? `data:image/jpg;base64,${product.images[0].img}` : "") : ""} alt = "" className='img-cover' />
+                  {/* <img src = {product?(product.images ? `data:image/jpg;base64,${product.images[0].img}` : "") : ""} alt = "" className='img-cover' /> */}
                   {/* <img src = {url} alt = "" className='img-cover' /> */}
 
                 </div>
@@ -106,7 +105,7 @@ const ProductSinglePage = () => {
 
             <div className='product-single-r'>
               <div className='product-details font-manrope'>
-                <div className='title fs-20 fw-5'>{product?.title}</div>
+                <div className='title fs-20 fw-5'>{product[0]?.attributes.product_title}</div>
                 <div>
                   <p className='para fw-3 fs-15'>{product?.description}</p>
                 </div>
@@ -120,13 +119,13 @@ const ProductSinglePage = () => {
                   <div className='vert-line'></div>
                   <div className='brand'>
                     <span className='text-orange fw-5'>Brand:</span>
-                    <span className='mx-1'>{product?.brand}</span>
+                    <span className='mx-1'>{product[0]?.attributes.product_brand}</span>
                   </div>
                   <div className='vert-line'></div>
                   <div className='brand'>
                     <span className='text-orange fw-5'>Category:</span>
                     <span className='mx-1 text-capitalize'>
-                      {product?.category ? product.category.replace("-", " ") : ""}
+                      {product[0]?.attributes.category.data.attributes.title ? product[0].attributes.category.data.attributes.title.replace("-", " ") : ""}
                     </span>
                   </div>
                 </div>
@@ -134,7 +133,7 @@ const ProductSinglePage = () => {
                 <div className = "price">
                   <div className='flex align-center'>
                     <div className='old-price text-gray'>
-                      {formatPrice(product?.price)}
+                      {formatPrice(product[0]?.attributes.price)}
                     </div>
                     <span className='fs-14 mx-2 text-dark'>
                       Inclusive of all taxes

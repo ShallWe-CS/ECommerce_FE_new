@@ -6,16 +6,16 @@ import { useOktaAuth } from '@okta/okta-react';
 
 const Header = () => {
 
-  const { oktaAuth, authState } = useOktaAuth();
-  const [authenticated, setIsAuthenticated] = useState(false);
+  // const { oktaAuth, authState } = useOktaAuth();
+  // const [authenticated, setIsAuthenticated] = useState(false);
 
-  const handleLogout = async () => oktaAuth.signOut();
+  // const handleLogout = async () => oktaAuth.signOut();
 
-  useEffect(() => {
-    if (authState != null && authState.isAuthenticated === true) {
-      setIsAuthenticated(true);
-    }
-  });
+  // useEffect(() => {
+  //   if (authState != null && authState.isAuthenticated === true) {
+  //     setIsAuthenticated(true);
+  //   }
+  // });
 
   return (
     <header className='header text-white'>
@@ -68,19 +68,19 @@ const Header = () => {
                   </Link>
                 </li>
                 <li className='vert-line'></li>
-                {!authenticated ?
+                {/* {!authenticated ?
                   <li>
-                    <Link to="/login">
+                    <Link to="">
                       <span className='top-link-itm-txt'>Log in</span>
                     </Link>
                   </li>
                   :
                   <li>
                     <Link>
-                      <span className='top-link-itm-txt' onClick={handleLogout}>Logout</span>
+                      <span className='top-link-itm-txt'>Logout</span>
                     </Link>
                   </li>
-                }
+                } */}
               </ul>
             </div>
           </div>

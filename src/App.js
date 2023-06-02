@@ -1,6 +1,6 @@
 import './App.scss';
 // react router v6
-import { Routes, Route, useNavigate } from 'react-router-dom';
+import { Routes, Route, useNavigate, BrowserRouter } from 'react-router-dom';
 // pages
 import { Home, CategoryProduct, ProductSingle, Cart, Search, Form } from "./pages/index";
 // components
@@ -11,28 +11,36 @@ import store from "./store/store";
 import { Provider } from "react-redux";
 import { oktaConfig } from "./utils/oktaConfig"
 import { OktaAuth } from "@okta/okta-auth-js";
-import { Security, LoginCallback} from '@okta/okta-react';
+import { Security, LoginCallback } from '@okta/okta-react';
 import LoginWidget from './components/Auth/LoginWidget';
-import {toRelativeUrl} from "@okta/okta-auth-js"
+import { toRelativeUrl } from "@okta/okta-auth-js"
+import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client"
 
 const oktaAuth = new OktaAuth(oktaConfig);
 
+//apollo client
+const client = new ApolloClient({
+  uri: 'http://localhost:1337/graphql',
+  cache: new InMemoryCache()
+});
+
 function App() {
 
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
-  const customAuthHandler = () => {
-    navigate('/login');
-  }
+  // const customAuthHandler = () => {
+  //   navigate('/login');
+  // }
 
-  const restoreOriginalUri = async (_oktaAuth, originalUri) => {
-    navigate(toRelativeUrl(originalUri || '/', window.location.origin));
-  }
+  // const restoreOriginalUri = async (_oktaAuth, originalUri) => {
+  //   navigate(toRelativeUrl(originalUri || '/', window.location.origin));
+  // }
 
   return (
     <div className="App">
-      <Provider store={store}>
-          <Security oktaAuth={oktaAuth} restoreOriginalUri={restoreOriginalUri} onAuthRequired={customAuthHandler}>
+      <BrowserRouter>
+        <Provider store={store}>
+          <ApolloProvider client={client}>
             <Header />
             <Sidebar />
             <Routes>
@@ -46,13 +54,14 @@ function App() {
               <Route path="/cart" element={<Cart />} />
               {/* searched products */}
               <Route path="/search/:searchTerm" element={<Search />} />
-              <Route path='/login' element={<LoginWidget config={oktaConfig}/>} />
+              {/* <Route path='/login' element={<LoginWidget config={oktaConfig} />} /> */}
               <Route path="/form" element={<Form />} />
               {/* <Route path='/login/callback' Component={LoginCallback} /> */}
             </Routes>
             <Footer />
-          </Security>
-      </Provider>
+          </ApolloProvider>
+        </Provider>
+      </BrowserRouter>
     </div>
   );
 }

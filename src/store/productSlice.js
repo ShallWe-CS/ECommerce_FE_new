@@ -61,9 +61,8 @@ export const fetchAsyncProducts = createAsyncThunk('products/fetch', async(limit
 
 // getting the single product data also
 export const fetchAsyncProductSingle = createAsyncThunk('product-single/fetch', async(id) => {
-    const response = await fetch(`${getSingleProduct}=${id}`);
-    const data = await response.json();
-    return data;
+    const response = await fetchDataFromApi(`/api/products?populate=*&[filters][id]=${id}`);
+    return response.data;
 });
 
 

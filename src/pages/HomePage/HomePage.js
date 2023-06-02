@@ -20,8 +20,7 @@ const HomePage = () => {
   }, []);
 
   // const getProducts = () => {
-  //   console.log("getProducts");
-  //   fetchDataFromApi("/api/products").then((res) => console.log(res));
+  //   fetchDataFromApi("/api/products?populate=*").then((res) => console.log(res));
   // }
 
   const products = useSelector(getAllProduct);
