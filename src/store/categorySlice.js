@@ -2,6 +2,7 @@ import { createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 import {BASE_URL} from "../utils/apiURL";
 import {STATUS} from "../utils/status";
 import {getAllCategoryNames, getAllProducts} from "../utils/endpoints"
+import { fetchDataFromApi } from "../utils/api";
 
 const initialState = {
     categories: [],
@@ -56,11 +57,17 @@ export const fetchAsyncCategories = createAsyncThunk('categories/fetch', async()
     return data;
 });
 
+// export const fetchAsyncProductsOfCategory = createAsyncThunk('category-products/fetch', async(category) => {
+//     const response = await fetch(`${getAllProducts}/search/findByCategoryContaining?category=${category}`);
+//     const responseJson = await response.json();
+//     const responseData = responseJson._embedded.products;
+//     return responseData;
+// });
+
 export const fetchAsyncProductsOfCategory = createAsyncThunk('category-products/fetch', async(category) => {
-    const response = await fetch(`${getAllProducts}/search/findByCategoryContaining?category=${category}`);
-    const responseJson = await response.json();
-    const responseData = responseJson._embedded.products;
-    return responseData;
+    const response = await fetchDataFromApi(`/api/products?populate=*&[filters][category][title]=${category}`);
+    console.log("response",response);
+    return response.data;
 });
 
 export const getAllCategories = (state) => state.category.categories;
