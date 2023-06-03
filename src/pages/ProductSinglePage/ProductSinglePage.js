@@ -29,7 +29,7 @@ const ProductSinglePage = () => {
     }
   }, [cartMessageStatus]);
 
-  let discountedPrice = (product?.price) - (product?.price * (product?.discountPercentage / 100));
+  let discountedPrice = (product[0]?.attributes.price) - (product[0]?.attributes.price * (product[0]?.attributes.discount / 100));
   if(productSingleStatus === STATUS.LOADING) {
     return <Loader />
   }
@@ -51,10 +51,9 @@ const ProductSinglePage = () => {
   }
 
   const addToCartHandler = (product) => {
-    let discountedPrice = (product?.price) - (product?.price * (product?.discountPercentage / 100));
+    let discountedPrice = (product[0]?.attributes.price) - (product[0]?.attributes.price * (product[0]?.attributes.discount / 100));
     let totalPrice = quantity * discountedPrice;
 
-    console.log("product: ",product);
     dispatch(addToCart({...product, quantity: quantity, totalPrice, discountedPrice}));
     dispatch(setCartMessageOn(true));
   }

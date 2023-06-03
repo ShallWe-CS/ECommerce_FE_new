@@ -24,7 +24,6 @@ const HomePage = () => {
   // }
 
   const products = useSelector(getAllProduct);
-  console.log(products);
   const productStatus = useSelector(getAllProductsStatus);
 
   // randomizing the products in the list

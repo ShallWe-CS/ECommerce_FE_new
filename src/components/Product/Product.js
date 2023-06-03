@@ -5,8 +5,6 @@ import "./Product.scss";
 
 const Product = ({product}) => {
 
-  console.log(product);
-
   const url = process.env.REACT_APP_DEV_URL + product.attributes.images.data[0].attributes.url;
 
   return (
