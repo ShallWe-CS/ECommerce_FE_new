@@ -5,6 +5,8 @@ import "./Product.scss";
 
 const Product = ({product}) => {
 
+  console.log(product);
+
   const url = process.env.REACT_APP_DEV_URL + product.attributes.images.data[0].attributes.url;
 
   return (
@@ -27,7 +29,7 @@ const Product = ({product}) => {
               {formatPrice(product?.attributes.price)}
             </span>
             <span className='new-price'>
-              {formatPrice(product?.attributes.discount)}
+              {formatPrice(product?.discountedPrice)}
             </span>
             <span className='discount fw-6'>
               ({product?.attributes.discount}% Off)
