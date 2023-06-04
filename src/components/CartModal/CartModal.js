@@ -12,10 +12,12 @@ const CartModal = ({carts}) => {
           <div className='cart-modal-list grid'>
             {
               carts.map(cart => {
+                console.log("cart: ",cart[0].attributes.images.data.attributes.formats.thumbnail.url);
+                const url = cart[0].attributes.images.data.attributes.formats.thumbnail.url;
                 return (
                   <div className='cart-modal-item grid align-center font-manrope py-2' key = {cart.id}>
                     <div className='cart-modal-item-img'>
-                      <img src = {cart?.thumbnail} alt = "" className='img-cover' />
+                      <img src = {url} alt = "" className='img-cover' />
                     </div>
                     <div className='cart-modal-item-title fs-13 font-manrope text-capitalize'>{cart?.title}</div>
                     <div className='cart-modal-item-price text-orange fs-14 fw-6'>

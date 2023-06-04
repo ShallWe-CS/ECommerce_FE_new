@@ -18,7 +18,6 @@ const ProductSinglePage = () => {
   const cartMessageStatus = useSelector(getCartMessageStatus);
   // const [url, setUrl] = useState();
 
-  console.log("product:",product);
   // getting single product
   useEffect(() => {
     dispatch(fetchAsyncProductSingle(id));
@@ -63,7 +62,7 @@ const ProductSinglePage = () => {
   //   console.log("product not null");
   // }
   
-  // const url = process.env.REACT_APP_DEV_URL + product[0].attributes.images.data[0].attributes.url;
+  const url = product[0]?.attributes.images.data.attributes.url;
 
   return (
     <main className='py-5 bg-whitesmoke'>
@@ -74,7 +73,7 @@ const ProductSinglePage = () => {
               <div className='product-img'>
                 <div className='product-img-zoom'>
                   {/* <img src = {product?(product.images ? `data:image/jpg;base64,${product.images[0].img}` : "") : ""} alt = "" className='img-cover' /> */}
-                  {/* <img src = {url} alt = "" className='img-cover' /> */}
+                  <img src = {url} alt = "" className='img-cover' />
 
                 </div>
 
