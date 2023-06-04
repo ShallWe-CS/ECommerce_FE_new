@@ -5,7 +5,7 @@ import "./Product.scss";
 
 const Product = ({product}) => {
 
-  const url = process.env.REACT_APP_DEV_URL + product.attributes.images.data[0].attributes.url;
+  const url = product.attributes.images.data.attributes.url;
 
   return (
     <Link to = {`/product/${product?.id}`} key = {product?.id}>

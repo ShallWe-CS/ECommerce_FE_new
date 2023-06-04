@@ -12,7 +12,6 @@ import { makePaymentRequest } from '../../utils/api';
 const CartPage = () => {
   const dispatch = useDispatch();
   const carts = useSelector(getAllCarts);
-  console.log("carts: ",carts);
   const { itemsCount, totalAmount } = useSelector((state) => state.cart);
 
   if (carts.length === 0) {
@@ -44,7 +43,6 @@ const CartPage = () => {
       })
 
     } catch (err) {
-      console.log("failed  checkout");
       console.log(err);
     }
   }

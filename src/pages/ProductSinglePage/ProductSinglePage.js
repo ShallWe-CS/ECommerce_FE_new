@@ -18,6 +18,7 @@ const ProductSinglePage = () => {
   const cartMessageStatus = useSelector(getCartMessageStatus);
   // const [url, setUrl] = useState();
 
+  console.log("product:",product);
   // getting single product
   useEffect(() => {
     dispatch(fetchAsyncProductSingle(id));
@@ -124,7 +125,7 @@ const ProductSinglePage = () => {
                   <div className='brand'>
                     <span className='text-orange fw-5'>Category:</span>
                     <span className='mx-1 text-capitalize'>
-                      {product[0]?.attributes.category.data.attributes.title ? product[0].attributes.category.data.attributes.title.replace("-", " ") : ""}
+                      {product[0]?.attributes.categories.data[0].attributes.title ? product[0].attributes.categories.data[0].attributes.title.replace("-", " ") : ""}
                     </span>
                   </div>
                 </div>
