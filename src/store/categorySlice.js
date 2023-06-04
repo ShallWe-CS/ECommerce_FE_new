@@ -65,7 +65,7 @@ export const fetchAsyncCategories = createAsyncThunk('categories/fetch', async()
 // });
 
 export const fetchAsyncProductsOfCategory = createAsyncThunk('category-products/fetch', async(category) => {
-    const response = await fetchDataFromApi(`/api/products?populate=*&[filters][category][title]=${category}`);
+    const response = await fetchDataFromApi(`/api/products?populate=*&[filters][categories][title]=${category}`);
     return response.data;
 });
 
