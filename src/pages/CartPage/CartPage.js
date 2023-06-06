@@ -76,9 +76,9 @@ const CartPage = () => {
 
           <div className='cart-cbody bg-white'>
             {
-              carts.map((cart, idx) => {
+              carts.map((cart, idx, i) => {
                 return (
-                  <div className='cart-ctr py-4' key={cart?.id}>
+                  <div className='cart-ctr py-4' key={i}>
                     <div className='cart-ctd'>
                       <span className='cart-ctxt'>{idx + 1}</span>
                     </div>

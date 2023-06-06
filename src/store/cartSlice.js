@@ -27,11 +27,8 @@ const cartSlice = createSlice({
     reducers: {
         addToCart: (state, action) => {
             const isItemInCart = state.carts.find(item => item[0].id === action.payload[0].id);
-            console.log("Payload: ",action.payload);
-            console.log(isItemInCart);
 
             if(isItemInCart){
-                console.log("Item in Cart");
                 const tempCart = state.carts.map(item => {
                     if(item[0].id === action.payload[0].id){
                         let tempQty = item.quantity + action.payload.quantity;
@@ -48,7 +45,6 @@ const cartSlice = createSlice({
                 state.carts = tempCart;
                 storeInLocalStorage(state.carts);
             } else {
-                console.log("Item not in Cart");
                 state.carts.push(action.payload);
                 storeInLocalStorage(state.carts);
             }

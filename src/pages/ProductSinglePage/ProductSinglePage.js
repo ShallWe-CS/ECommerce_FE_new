@@ -17,7 +17,7 @@ const ProductSinglePage = () => {
   const productSingleStatus = useSelector(getSingleProductStatus);
   const [quantity, setQuantity] = useState(1);
   const cartMessageStatus = useSelector(getCartMessageStatus);
-  const [selected , setSelected] = useState("");
+  const [selected , setSelected] = useState("Size");
   // const [url, setUrl] = useState();
 
   // getting single product
@@ -60,11 +60,17 @@ const ProductSinglePage = () => {
     dispatch(setCartMessageOn(true));
   }
 
-  // if(product.) {
-  //   console.log("product not null");
-  // }
-  
   const url = product[0]?.attributes.images.data.attributes.url;
+
+  const dropDownArray = [];
+
+  const dropDownItems = product[0]?.attributes.sizes.data;
+
+  if (dropDownItems != undefined) {
+    for(let i=0; i<dropDownItems.length;i++) {
+      dropDownArray.push(dropDownItems[i].attributes.size);
+    }
+  }
 
   return (
     <main className='py-5 bg-whitesmoke'>
@@ -162,13 +168,12 @@ const ProductSinglePage = () => {
                       <i className='fas fa-plus'></i>
                     </button>
                   </div>
+                  <div>
+                  <DropDown selected={selected} setSelected={setSelected} title={"Size"} dropDownItems={dropDownArray}/>
+                  </div>
                   {
                     (product?.stock === 0) ? <div className ='qty-error text-uppercase bg-danger text-white fs-12 ls-1 mx-2 fw-5'>out of stock</div> : ""
                   }
-                </div>
-
-                <div className='qty flex align-center my-4'>
-                  <DropDown selected={selected} setSelected={setSelected} />
                 </div>
 
                 <div className='btns'>
