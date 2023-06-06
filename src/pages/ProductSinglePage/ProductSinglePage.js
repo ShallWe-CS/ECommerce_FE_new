@@ -8,6 +8,7 @@ import Loader from "../../components/Loader/Loader";
 import {formatPrice} from "../../utils/helpers";
 import { addToCart, getCartMessageStatus, setCartMessageOff, setCartMessageOn } from '../../store/cartSlice';
 import CartMessage from "../../components/CartMessage/CartMessage";
+import DropDown from '../../components/DropDown/DropDown';
 
 const ProductSinglePage = () => {
   const {id} = useParams();
@@ -16,6 +17,7 @@ const ProductSinglePage = () => {
   const productSingleStatus = useSelector(getSingleProductStatus);
   const [quantity, setQuantity] = useState(1);
   const cartMessageStatus = useSelector(getCartMessageStatus);
+  const [selected , setSelected] = useState("");
   // const [url, setUrl] = useState();
 
   // getting single product
@@ -163,6 +165,10 @@ const ProductSinglePage = () => {
                   {
                     (product?.stock === 0) ? <div className ='qty-error text-uppercase bg-danger text-white fs-12 ls-1 mx-2 fw-5'>out of stock</div> : ""
                   }
+                </div>
+
+                <div className='qty flex align-center my-4'>
+                  <DropDown selected={selected} setSelected={setSelected} />
                 </div>
 
                 <div className='btns'>
