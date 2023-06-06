@@ -3,12 +3,12 @@ import "./DropDown.scss";
 
 const DropDown = ({ selected, setSelected}) => {
     const [ isActive, setIsActive ] = useState(false);
-    const options = ["React", "Vue", "Angular"];
+    const options = ["XS", "S", "M","L","XL","XXL"];
     return (
         <div className="dropdown">
             <div className="dropdown-btn" onClick={(e) =>
             setIsActive(!isActive)}>
-                Choose One
+                Choose Size
                 <span className="fas fa-caret-down"></span>
             </div>
             {isActive && (
