@@ -8,6 +8,7 @@ import { getAllCarts, removeFromCart, toggleCartQty, clearCart, getCartTotal } f
 import { loadStripe } from '@stripe/stripe-js';
 import { } from 'axios';
 import { makePaymentRequest } from '../../utils/api';
+import { CardElement } from '@stripe/react-stripe-js';
 
 const CartPage = () => {
   const dispatch = useDispatch();
@@ -83,7 +84,8 @@ const CartPage = () => {
                       <span className='cart-ctxt'>{idx + 1}</span>
                     </div>
                     <div className='cart-ctd'>
-                      <span className='cart-ctxt'>{cart[0]?.attributes.product_title}</span>
+                      {/* <span className='cart-ctxt'>{cart[0]?.attributes.product_title}</span> */}
+                      <span className='cart-ctxt'>{cart[0]?.attributes.product_title + ` - ` +  cart.size}</span>
                     </div>
                     <div className='cart-ctd'>
                       <span className='cart-ctxt'>{formatPrice(cart?.discountedPrice)}</span>

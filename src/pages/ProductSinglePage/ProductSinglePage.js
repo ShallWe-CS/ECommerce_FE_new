@@ -55,8 +55,9 @@ const ProductSinglePage = () => {
   const addToCartHandler = (product) => {
     let discountedPrice = (product[0]?.attributes.price) - (product[0]?.attributes.price * (product[0]?.attributes.discount / 100));
     let totalPrice = quantity * discountedPrice;
+    let size = "S";
 
-    dispatch(addToCart({...product, quantity: quantity, totalPrice, discountedPrice}));
+    dispatch(addToCart({...product, quantity: quantity, totalPrice, discountedPrice, size}));
     dispatch(setCartMessageOn(true));
   }
 
@@ -66,7 +67,7 @@ const ProductSinglePage = () => {
 
   const dropDownItems = product[0]?.attributes.sizes.data;
 
-  if (dropDownItems != undefined) {
+  if (dropDownItems !== undefined) {
     for(let i=0; i<dropDownItems.length;i++) {
       dropDownArray.push(dropDownItems[i].attributes.size);
     }

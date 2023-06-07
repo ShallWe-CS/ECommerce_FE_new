@@ -1,4 +1,3 @@
-import { canonicalStringify } from "@apollo/client/cache";
 import {createSlice} from "@reduxjs/toolkit";
 
 const fetchFromLocalStorage = () => {
@@ -26,13 +25,13 @@ const cartSlice = createSlice({
     initialState,
     reducers: {
         addToCart: (state, action) => {
-            const isItemInCart = state.carts.find(item => item[0].id === action.payload[0].id);
+            const isItemInCart = state.carts.find(item => item[0].id === action.payload[0].id && item.size === action.payload.size);
 
             if(isItemInCart){
                 const tempCart = state.carts.map(item => {
                     if(item[0].id === action.payload[0].id){
                         let tempQty = item.quantity + action.payload.quantity;
-                        let tempTotalPrice = tempQty * item.price;
+                        let tempTotalPrice = tempQty * item.discountedPrice;
 
                         return {
                             ...item, quantity: tempQty, totalPrice: tempTotalPrice
