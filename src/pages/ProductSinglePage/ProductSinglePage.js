@@ -9,6 +9,8 @@ import {formatPrice} from "../../utils/helpers";
 import { addToCart, getCartMessageStatus, setCartMessageOff, setCartMessageOn } from '../../store/cartSlice';
 import CartMessage from "../../components/CartMessage/CartMessage";
 import DropDown from '../../components/DropDown/DropDown';
+ 
+
 
 const ProductSinglePage = () => {
   const {id} = useParams();
@@ -18,7 +20,11 @@ const ProductSinglePage = () => {
   const [quantity, setQuantity] = useState(1);
   const cartMessageStatus = useSelector(getCartMessageStatus);
   const [selected , setSelected] = useState("Size");
+  //adding the state of selecting a size before adding to cart
+  const [sizeSelected, setSizeSelected] = useState(false);
   // const [url, setUrl] = useState();
+
+  
 
   // getting single product
   useEffect(() => {
@@ -53,9 +59,16 @@ const ProductSinglePage = () => {
   }
 
   const addToCartHandler = (product) => {
+    if (!selected || selected === "Size") {
+      alert('Please select a size before adding to cart');
+      return; // Stop execution if size is not selected
+    }
+    
+    setSizeSelected(true); // Set sizeSelected to true when a size is selected
+
     let discountedPrice = (product[0]?.attributes.price) - (product[0]?.attributes.price * (product[0]?.attributes.discount / 100));
     let totalPrice = quantity * discountedPrice;
-    let size = "S";
+    let size = "Size"; //edited this was previously "S"
 
     dispatch(addToCart({...product, quantity: quantity, totalPrice, discountedPrice, size}));
     dispatch(setCartMessageOn(true));
