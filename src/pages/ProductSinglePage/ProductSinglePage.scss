@@ -1,5 +1,7 @@
 @import "../../App.scss";
 
+  
+
 .product-single{
     .product-single-content{
         row-gap: 2rem;
@@ -140,3 +142,29 @@
         }
     }
 }
+
+.dropdown {
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 0;
+    padding: 8px 12px;
+  }
+  
+  @media screen and (max-width: 768px) {
+    /* Styles for screens up to 768px width */
+    .dropdown {
+        background-color: white;
+        border: 1px solid #ccc;
+        border-radius: 0;
+    }
+  }
+  
+  @media screen and (max-width: 480px) {
+    /* Styles for screens up to 480px width */
+    .dropdown {
+        background-color: white;
+        border: 1px solid #ccc;
+        border-radius: 0;
+    }
+  }
+  

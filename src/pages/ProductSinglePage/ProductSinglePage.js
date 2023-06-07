@@ -15,6 +15,8 @@ const ProductSinglePage = () => {
   const product = useSelector(getProductSingle);
   const productSingleStatus = useSelector(getSingleProductStatus);
   const [quantity, setQuantity] = useState(1);
+  const [selectedSize, setSelectedSize] = useState('');
+
   const cartMessageStatus = useSelector(getCartMessageStatus);
   // const [url, setUrl] = useState();
 
@@ -110,7 +112,7 @@ const ProductSinglePage = () => {
                 </div>
                 <div className='info flex align-center flex-wrap fs-14'>
                   <div className='rating'>
-                    <span className='text-orange fw-5'>Rating:</span>
+                    <span className='text-orange fw-5'>Size Guide</span>
                     <span className='mx-1'>
                       {product?.rating}
                     </span>
@@ -148,6 +150,20 @@ const ProductSinglePage = () => {
                     </div>
                   </div>
                 </div>
+                
+                <div className='size flex align-center my-4'>
+                  <div className='size-text'>Size: </div>
+                  <div className='size-options'>
+                    <select classname = 'dropdown' value={selectedSize} onChange={(e) => setSelectedSize(e.target.value)} >
+                      <option value=''>Select Size</option>
+                      <option value='XS'>XS</option>
+                      <option value='S'>S</option>
+                      <option value='M'>M</option>
+                      <option value='L'>L</option>
+                      <option value='XL'>XL</option>
+                    </select>
+                  </div>
+                </div>
 
                 <div className='qty flex align-center my-4'>
                   <div className='qty-text'>Quantity:</div>
@@ -164,7 +180,7 @@ const ProductSinglePage = () => {
                     (product?.stock === 0) ? <div className ='qty-error text-uppercase bg-danger text-white fs-12 ls-1 mx-2 fw-5'>out of stock</div> : ""
                   }
                 </div>
-
+                    
                 <div className='btns'>
                   <button type = "button" className='add-to-cart-btn btn'>
                     <i className='fas fa-shopping-cart'></i>
