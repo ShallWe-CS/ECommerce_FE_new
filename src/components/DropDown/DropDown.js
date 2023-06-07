@@ -7,14 +7,20 @@ const DropDown = ({ selected, setSelected, title, dropDownItems}) => {
     const [ isActive, setIsActive ] = useState(false);
     // const [ open, setIsOpen ] = useState(false);
     const menuRef = useRef();
-    // const btnRef = useRef();
-    useEffect(() => {
-        document.addEventListener("mousedown", (event) => {
-            if(!menuRef.current.contains(event.target))
-            {
-                setIsActive(false);
-            }
-        })
+    const btnRef = useRef();
+    // useEffect(() => {
+    //     document.addEventListener("mousedown", (event) => {
+    //         if(!menuRef.current.contains(event.target))
+    //         {
+    //             setIsActive(false);
+    //         }
+    //     })
+    // })
+
+    window.addEventListener("click",  (e) => {
+        if (e.target !== menuRef.current && e.target !== btnRef.current) {
+            setIsActive(false);
+        }
     })
     
     const options = dropDownItems;
@@ -22,7 +28,7 @@ const DropDown = ({ selected, setSelected, title, dropDownItems}) => {
     
     return (
         <div className="dropdown">
-            <div className="dropdown-btn" onClick={(e) =>
+            <div ref={btnRef} className="dropdown-btn" onClick={(e) =>
             setIsActive(!isActive)}>
                 {selected}
                 <span className="fas fa-caret-down"></span>
