@@ -1,9 +1,25 @@
-import { useState } from "react"
+import { useState, useRef, useEffect } from "react"
 import "./DropDown.scss";
+
+
 
 const DropDown = ({ selected, setSelected, title, dropDownItems}) => {
     const [ isActive, setIsActive ] = useState(false);
+    // const [ open, setIsOpen ] = useState(false);
+    const menuRef = useRef();
+    // const btnRef = useRef();
+    useEffect(() => {
+        document.addEventListener("mousedown", (event) => {
+            if(!menuRef.current.contains(event.target))
+            {
+                setIsActive(false);
+            }
+        })
+    })
+    
     const options = dropDownItems;
+    
+    
     return (
         <div className="dropdown">
             <div className="dropdown-btn" onClick={(e) =>
@@ -12,7 +28,7 @@ const DropDown = ({ selected, setSelected, title, dropDownItems}) => {
                 <span className="fas fa-caret-down"></span>
             </div>
             {isActive && (
-                <div className="dropdown-content">
+                <div ref={menuRef} className="dropdown-content">
                     {options.map((option, i) => (
                         <div key={i}
                             onClick={(e) => {
