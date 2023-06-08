@@ -23,9 +23,10 @@ const ProductSinglePage = () => {
   //adding the state of selecting a size before adding to cart
   const [sizeSelected, setSizeSelected] = useState(false);
   // const [url, setUrl] = useState();
-
   
 
+  
+   
   // getting single product
   useEffect(() => {
     dispatch(fetchAsyncProductSingle(id));
@@ -68,7 +69,7 @@ const ProductSinglePage = () => {
 
     let discountedPrice = (product[0]?.attributes.price) - (product[0]?.attributes.price * (product[0]?.attributes.discount / 100));
     let totalPrice = quantity * discountedPrice;
-    let size = "Size"; //edited this was previously "S"
+    let size = selected; //part which will show the size that is selected in the cart
 
     dispatch(addToCart({...product, quantity: quantity, totalPrice, discountedPrice, size}));
     dispatch(setCartMessageOn(true));
