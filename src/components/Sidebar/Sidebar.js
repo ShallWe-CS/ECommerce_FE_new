@@ -33,16 +33,19 @@ const Sidebar = () => {
             })
           } */}
           <li className='nav-item no-wrap'>
-            <Link className='nav-link text-capitalize'>{<h4>Shirts</h4>}</Link>
+            <Link to = {`category/Shirt`}  className='nav-link text-capitalize'>{<h4>Shirts</h4>}</Link>
           </li>
           <li className='nav-item no-wrap'>
-            <Link className='nav-link text-capitalize'>{<h4>T-Shirts</h4>}</Link>
+            <Link to = {`category/Tshirt`} className='nav-link text-capitalize'>{<h4>T-Shirts</h4>}</Link>
           </li>
           <li className='nav-item no-wrap'>
-            <Link className='nav-link text-capitalize'>{<h4>OverSize</h4>}</Link>
+            <Link to = {`category/Oversize`} className='nav-link text-capitalize'>{<h4>OverSize</h4>}</Link>
           </li>
           <li className='nav-item no-wrap'>
-            <Link className='nav-link text-capitalize'>{<h4>Events</h4>}</Link>
+            <Link Link to = {`category/events`} className='nav-link text-capitalize'>{<h4>Events</h4>}</Link>
+          </li>
+          <li className='nav-item no-wrap'>
+           <Link className='nav-link text-capitalize'>{<h4>Sales</h4>}</Link>
           </li>
         </ul>
       </div>
