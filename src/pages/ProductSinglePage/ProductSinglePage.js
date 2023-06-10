@@ -8,6 +8,7 @@ import Loader from "../../components/Loader/Loader";
 import {formatPrice} from "../../utils/helpers";
 import { addToCart, getCartMessageStatus, setCartMessageOff, setCartMessageOn } from '../../store/cartSlice';
 import CartMessage from "../../components/CartMessage/CartMessage";
+import SelectSizeMessage from '../../components/SelectSizeMessage/SelectSizeMessage';
 import DropDown from '../../components/DropDown/DropDown';
  
 
@@ -23,7 +24,7 @@ const ProductSinglePage = () => {
   //adding the state of selecting a size before adding to cart
   const [sizeSelected, setSizeSelected] = useState(false);
   // const [url, setUrl] = useState();
-  
+  const [showSizeMessage, setShowSizeMessage] = useState(false);
 
   
    
@@ -61,7 +62,15 @@ const ProductSinglePage = () => {
 
   const addToCartHandler = (product) => {
     if (!selected || selected === "Size") {
-      alert('Please select a size before adding to cart');
+     //alert('Please select a size before adding to cart');
+     //  {<SelectSizeMessage />}
+     setShowSizeMessage(true);
+      
+      // Hide the message after 3 seconds
+    setTimeout(() => {
+      setShowSizeMessage(false);
+    }, 1400);
+    
       return; // Stop execution if size is not selected
     }
     
@@ -207,6 +216,7 @@ const ProductSinglePage = () => {
       </div>
 
       {cartMessageStatus && <CartMessage />}
+      {showSizeMessage && <SelectSizeMessage />}
     </main>
   )
 }
