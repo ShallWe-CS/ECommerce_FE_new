@@ -1,3 +1,7 @@
+import { STATUS } from "../utils/status";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { fetchDataFromApi } from "../utils/api";
+
 const initialState = {
     events: [],
     eventsStatus: STATUS.IDLE,
@@ -24,18 +28,18 @@ const eventSlice = createSlice({
             state.eventsStatus = STATUS.FAILED
         })
 
-        .addCase(fetchAsyncEventSingle.pending, (state, action) => {
-            state.eventSingleStatus = STATUS.LOADING;
-        })
+        // .addCase(fetchAsyncEventSingle.pending, (state, action) => {
+        //     state.eventSingleStatus = STATUS.LOADING;
+        // })
 
-        .addCase(fetchAsyncEventSingle.fulfilled, (state, action) => {
-            state.eventSingle = action.payload;
-            state.eventSingleStatus = STATUS.SUCCEEDED;
-        })
+        // .addCase(fetchAsyncEventSingle.fulfilled, (state, action) => {
+        //     state.eventSingle = action.payload;
+        //     state.eventSingleStatus = STATUS.SUCCEEDED;
+        // })
 
-        .addCase(fetchAsyncEventSingle.rejected, (state, action) => {
-            state.eventSingleStatus = STATUS.FAILED;
-        })
+        // .addCase(fetchAsyncEventSingle.rejected, (state, action) => {
+        //     state.eventSingleStatus = STATUS.FAILED;
+        // })
     }
 });
 
