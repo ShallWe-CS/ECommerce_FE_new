@@ -84,8 +84,8 @@ const ProductSinglePage = () => {
     dispatch(setCartMessageOn(true));
   }
 
-  const url1 = product[0]?.attributes.images.data[0].attributes.url;
-  const url2 = product[0]?.attributes.images.data[1].attributes.url;
+  const url1 = product[0]?.attributes.images.data[0]?.attributes.url;
+  const url2 = product[0]?.attributes.images.data[1]?.attributes.url;
 
   const dropDownArray = [];
 
