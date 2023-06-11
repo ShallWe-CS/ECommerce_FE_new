@@ -84,7 +84,8 @@ const ProductSinglePage = () => {
     dispatch(setCartMessageOn(true));
   }
 
-  const url = product[0]?.attributes.images.data.attributes.url;
+  const url1 = product[0]?.attributes.images.data[0].attributes.url;
+  const url2 = product[0]?.attributes.images.data[1].attributes.url;
 
   const dropDownArray = [];
 
@@ -105,16 +106,14 @@ const ProductSinglePage = () => {
               <div className='product-img'>
                 <div className='product-img-zoom'>
                   {/* <img src = {product?(product.images ? `data:image/jpg;base64,${product.images[0].img}` : "") : ""} alt = "" className='img-cover' /> */}
-                  <img src = {url} alt = "" className='img-cover' />
+                  <img src = {url1} alt = "" className='img-cover' />
 
                 </div>
 
                 <div className='product-img-thumbs flex align-center my-2'>
-                  {/* <div className='thumb-item'>
-                    <img src = {
-                      product ? (product.images ? `data:image/jpg;base64,${product.images[1].img}` : "") : ""
-                    } alt = "" className='img-cover' />
-                  </div> */}
+                  <div className='thumb-item'>
+                    <img src = {url2} alt = "" className='img-cover' />
+                  </div>
                   {/* <div className='thumb-item'>
                     <img src = {
                       product ? (product.images ? `data:image/jpg;base64,${product.images[2].img}` : "") : ""
