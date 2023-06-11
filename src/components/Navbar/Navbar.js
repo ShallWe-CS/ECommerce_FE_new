@@ -70,7 +70,7 @@ const Navbar = () => {
                   <Link to = {`category/Oversize`} className='nav-link text-capitalize'>{<h2>OverSize</h2>}</Link>
                 </li>
                 <li className='nav-item no-wrap'>
-                  <Link to = {`category/events`} className='nav-link text-capitalize'>{<h2>Events</h2>}</Link>
+                  <Link to = {`/event`} className='nav-link text-capitalize'>{<h2>Events</h2>}</Link>
                 </li>
                 <li className='nav-item no-wrap'>
                   <Link className='nav-link text-capitalize'>{<h2>Sales</h2>}</Link>

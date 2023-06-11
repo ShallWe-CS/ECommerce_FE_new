@@ -2,7 +2,7 @@ import './App.scss';
 // react router v6
 import { Routes, Route, useNavigate, BrowserRouter } from 'react-router-dom';
 // pages
-import { Home, CategoryProduct, ProductSingle, Cart, Search, Form, SizeGuide} from "./pages/index";
+import { Home, CategoryProduct, ProductSingle, Cart, Search, Form, SizeGuide, EventPage} from "./pages/index";
 // components
 import Header from "./components/Header/Header";
 import Sidebar from "./components/Sidebar/Sidebar";
@@ -59,6 +59,7 @@ function App() {
               <Route path="/form" element={<Form />} />
               {/* <Route path='/login/callback' Component={LoginCallback} /> */}
               <Route path="/sizeGuide" element={<SizeGuide />} />
+              <Route path="/event" element={<EventPage />} />
             </Routes>
             <Footer />
           </ApolloProvider>
