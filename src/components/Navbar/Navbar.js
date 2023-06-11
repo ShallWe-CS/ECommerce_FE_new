@@ -76,7 +76,7 @@ const Navbar = () => {
                   <Link className='nav-link text-capitalize'>{<h2>Sales</h2>}</Link>
                 </li>
                 <li className='nav-item no-wrap'>
-                  <Link className='nav-link text-capitalize'>{<h2>Size Guide</h2>}</Link>
+                  <Link to = {`/sizeGuide`} className='nav-link text-capitalize'>{<h2>Size Guide</h2>}</Link>
                 </li>
           </ul>
         </div>
