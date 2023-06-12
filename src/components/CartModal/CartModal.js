@@ -12,6 +12,7 @@ const CartModal = ({carts}) => {
           <div className='cart-modal-list grid'>
             {
               carts.map((cart, i) => {
+                console.log(cart[0]);
                 const url = cart[0].attributes.images.data.attributes.formats.thumbnail.url;
                 return (
                   <div className='cart-modal-item grid align-center font-manrope py-2' key = {i}>
