@@ -1,16 +1,17 @@
+import Event from '../Event/Event';
 import './EventList.scss';
 
-const EventList = () => {
+const EventList = ({events}) => {
     return (
-      <div className='product-lists grid bg-whitesmoke my-3'>
-        {/* {
-          products.map(product => {
-            let discountedPrice = (product.attributes.price) - (product.attributes.price * (product.attributes.discount / 100));
+      <div className='event-lists grid bg-whitesmoke my-3'>
+        {
+          events.map(event => {
+            // let discountedPrice = (product.attributes.price) - (product.attributes.price * (product.attributes.discount / 100));
             return (
-              <Product key = {product.id} product = {{...product, discountedPrice}} />
+              <Event key = {event.id} event = {{...event}} />
             )
           })
-        } */}
+        }
       </div>
     )
   }

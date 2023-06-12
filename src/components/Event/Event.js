@@ -1,11 +1,17 @@
-const Event = () => {
+import { Link } from 'react-router-dom';
+
+const Event = ({event}) => {
   
+  console.log("event details: ",event);
+
+  const url = event.attributes.banner.data.attributes.url;
+
     return (
-      <Link key = {product?.id}>
+      <Link key = {event?.id}>
         <div className='product-item bg-white'>
-          <div className='category'>{product?.attributes.product_category}</div>
+          {/* <div className='category'>{product?.attributes.product_category}</div> */}
           <div className='product-item-img'>
-            {/* <img className='img-cover' src = {url} alt = {product.title} /> */}
+            <img className='img-cover' src = {url} />
           </div>
           <div className='product-item-info fs-14'>
             <div className='brand'>

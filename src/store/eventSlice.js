@@ -45,7 +45,11 @@ const eventSlice = createSlice({
 
 export const fetchAsyncEvents = createAsyncThunk('events/fetch', async(limit) => {
     const response = await fetchDataFromApi("/api/events?populate=*");
+    console.log(response);
     return response.data;
 });
+
+export const getAllEvents = (state) => state.event.events;
+export const getEventsStatus = (state) => state.event.eventsStatus;
 
 export default eventSlice.reducer;
