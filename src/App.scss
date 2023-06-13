@@ -80,6 +80,7 @@ input, textarea, select{
     display: flex;
     &-column{ flex-direction: column;}
     &-wrap{flex-wrap: wrap;}
+    &-row{ flex-direction: row;}
 }
 .align{
     &-center{align-items: center;}
