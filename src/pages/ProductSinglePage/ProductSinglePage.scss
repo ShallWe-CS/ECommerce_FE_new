@@ -138,5 +138,14 @@
         @media screen and (min-width: 992px){
 
         }
+
+        .toggle-flex{
+            @media screen and (min-width: 576px){
+                display: flex;
+                flex-direction: row;
+            }
+            display: flex;
+            flex-direction: column;
+        }
     }
 }
