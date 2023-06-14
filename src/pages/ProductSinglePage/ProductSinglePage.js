@@ -115,7 +115,7 @@ const ProductSinglePage = () => {
   }
 
   return (
-    <main className="py-5 bg-white">
+    <main className="single-product py-5 bg-whitesmoke">
       <div className="product-single">
         <div className="container">
           <div className="product-single-content bg-white grid">
