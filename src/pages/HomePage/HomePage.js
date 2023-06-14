@@ -49,7 +49,7 @@ const HomePage = () => {
       <div className='slider-wrapper'>
         <HeaderSlider />
       </div>
-      <div className='main-content bg-whitesmoke'>
+      <div className='main-content bg-white'>
         <div className='container'>
           <div className='categories py-5'>
             

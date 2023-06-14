@@ -3,7 +3,7 @@ import './EventList.scss';
 
 const EventList = ({events}) => {
     return (
-      <div className='event-lists grid bg-whitesmoke my-3'>
+      <div className='event-lists grid bg-white my-3'>
         {
           events.map(event => {
             // let discountedPrice = (product.attributes.price) - (product.attributes.price * (product.attributes.discount / 100));

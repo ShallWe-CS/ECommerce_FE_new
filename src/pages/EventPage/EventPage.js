@@ -18,7 +18,7 @@ const EventPage = () => {
       }, [dispatch]);
 
     return (
-      <div className='cat-products py-5 bg-whitesmoke'>
+      <div className='cat-products py-5 bg-white'>
         <div className='container'>
           <div className='cat-products-content'>
             <div className='title-md'>

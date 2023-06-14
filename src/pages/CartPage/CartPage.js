@@ -49,7 +49,7 @@ const CartPage = () => {
   }
 
   return (
-    <div className='cart bg-whitesmoke'>
+    <div className='cart bg-white'>
       <div className='container'>
         <div className='cart-ctable'>
           <div className='cart-chead bg-white'>
