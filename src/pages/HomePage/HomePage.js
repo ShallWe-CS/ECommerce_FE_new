@@ -69,7 +69,7 @@ const HomePage = () => {
               </div>
 
               <div className='title-md'>
-                <h3>See our products</h3>
+                <h3>New Arrivals</h3>
               </div>
               { productStatus === STATUS.LOADING ? <Loader /> : <ProductList products = {tempProducts.slice(0,5)} />}
 
