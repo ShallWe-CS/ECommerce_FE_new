@@ -24,18 +24,16 @@ const Header = () => {
           <div className='header-cnt-top fs-13 py-2 flex align-center justify-between'>
             <div className='header-cnt-top-l'>
               <ul className='flex top-links align-center'>
-                <li>
-                  {/* dummy links */}
+                {/* <li>
                   <Link to="/seller">Seller Center</Link>
-                </li>
-                <li className='vert-line'></li>
+                </li> */}
+                {/* <li className='vert-line'></li>
                 <li>
-                  {/* dummy links */}
                   <Link to="/download">Download</Link>
-                </li>
-                <li className='vert-line'></li>
+                </li> */}
                 <li className='flex align-center'>
                   <span className='fs-13'>Follow us on</span>
+                  <li className='vert-line'></li>
                   <ul className='social-links flex align-center'>
                     <li className='mx-2'>
                       <a href="www.facebook.com" className='fs-15'>
@@ -61,13 +59,13 @@ const Header = () => {
                     <span className='top-link-itm-txt'>Support</span>
                   </Link>
                 </li>
-                <li className='vert-line'></li>
-                <li>
+                {/* <li className='vert-line'></li> */}
+                {/* <li>
                   <Link to="/">
                     <span className='top-link-itm-txt'>Register</span>
                   </Link>
-                </li>
-                <li className='vert-line'></li>
+                </li> */}
+                {/* <li className='vert-line'></li> */}
                 {/* {!authenticated ?
                   <li>
                     <Link to="">
