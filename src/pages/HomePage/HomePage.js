@@ -71,7 +71,7 @@ const HomePage = () => {
               <div className='title-md'>
                 <h3>See our products</h3>
               </div>
-              { productStatus === STATUS.LOADING ? <Loader /> : <ProductList products = {tempProducts} />}
+              { productStatus === STATUS.LOADING ? <Loader /> : <ProductList products = {tempProducts.slice(0,5)} />}
             </div>
 
             {/* <div className='categories-item'>
