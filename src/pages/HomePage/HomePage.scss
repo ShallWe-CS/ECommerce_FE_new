@@ -1,3 +1,5 @@
+@import "../../App.scss";
+
 .slider-wrapper{
     margin: 32px 0;
 }
@@ -36,3 +38,27 @@
         grid-template-columns: repeat(2, 1fr);
     }
 }
+
+.comment{
+    margin-top: 50px;
+    .paragraph{
+        color: #333232;
+        font-size: 16px;
+        padding: 0 20px 30px 20px;
+    }
+    .customer{
+        height: 70px;
+        background-color: #660000;
+        color: white;
+
+        .name{
+            font-size: 17.5px;
+            font-weight: 700;
+        }
+    }
+}
+
+// .flex-row{
+//     display: flex;
+//     flex-direction: row;
+// }

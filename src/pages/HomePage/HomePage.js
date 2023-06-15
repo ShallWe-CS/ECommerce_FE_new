@@ -72,6 +72,26 @@ const HomePage = () => {
                 <h3>See our products</h3>
               </div>
               { productStatus === STATUS.LOADING ? <Loader /> : <ProductList products = {tempProducts.slice(0,5)} />}
+
+              <div className='title-md'>
+                <h3>What Our Customers Say?</h3>
+              </div>
+              <div class="comment flex-lists grid">
+                <div>
+                  <p className='paragraph'>"Pissu Kanna's 'OW' T-Shirt is amazing! It's super comfortable and always fires up a conversation when I am at a gathering. Me and my gf both have it in two colours!"</p>
+                  <div className='customer flex align-center justify-between'>
+                    <h2 className='name px-4'>Kethaka Ranasinghe</h2>
+                    <i class="fa-solid fa-quote-right fa-2xl px-4"></i>
+                  </div>
+                </div>
+                <div>
+                  <p className='paragraph'>"Pissu Kanna's 'OW' T-Shirt is amazing! It's super comfortable and always fires up a conversation when I am at a gathering. Me and my gf both have it in two colours!"</p>
+                  <div className='customer flex align-center justify-between'>
+                    <h2 className='name px-4'>Chethiya Galkaduwa</h2>
+                    <i class="fa-solid fa-quote-right fa-2xl px-4"></i>
+                  </div>
+                </div>
+              </div>
             </div>
 
             {/* <div className='categories-item'>
