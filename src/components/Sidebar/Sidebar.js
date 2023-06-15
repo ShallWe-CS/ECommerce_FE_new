@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import "./Sidebar.scss";
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
@@ -11,12 +11,31 @@ const Sidebar = () => {
   const isSidebarOn = useSelector(getSidebarStatus);
   const categories = useSelector(getAllCategories);
 
+  const sidebarRef = useRef(null);
+
   useEffect(() => {
-    dispatch(fetchAsyncCategories())
-  }, [dispatch])
+    dispatch(fetchAsyncCategories());
+    document.addEventListener('mousedown', handleOutsideClick);
+
+    return () => {
+      document.removeEventListener('mousedown', handleOutsideClick);
+    };
+  }, [dispatch]);
+
+  const handleOutsideClick = (event) => {
+    if (sidebarRef.current && !sidebarRef.current.contains(event.target)) {
+      dispatch(setSidebarOff());
+    }
+  };
+
+  const handleListItemClick = () => {
+    dispatch(setSidebarOff());
+  };
 
   return (
-    <aside className={`sidebar ${isSidebarOn ? 'hide-sidebar' : ""}`}>
+    <aside 
+    ref = {sidebarRef}
+    className={`sidebar ${isSidebarOn ? 'hide-sidebar' : ""}`}>
       <button type="button" className='sidebar-hide-btn' onClick={() => dispatch(setSidebarOff())}>
         <i className='fas fa-times'></i>
       </button>
