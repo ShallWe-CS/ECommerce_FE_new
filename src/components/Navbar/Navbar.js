@@ -61,6 +61,9 @@ const Navbar = () => {
               ))
             } */}
                 <li className='nav-item no-wrap'>
+                  <Link to = "/" className='nav-link text-capitalize'>{<h2>Home</h2>}</Link>
+                </li>
+                <li className='nav-item no-wrap'>
                   <Link to = {`category/Shirt`} className='nav-link text-capitalize'>{<h2>Shirts</h2>}</Link>
                 </li>
                 <li className='nav-item no-wrap'>
