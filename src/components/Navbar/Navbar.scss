@@ -1,6 +1,9 @@
 @import "../../App.scss";
 
 .navbar{
+    background: rgb(102, 0, 0);
+    background: linear-gradient(180deg, rgba(102, 0, 0, 1) 0%, rgba(102, 0, 0, 1) 100%);
+
     padding-top: 12px;
     padding-bottom: 12px;
     .navbar-brand{
@@ -48,9 +51,12 @@
             margin-left: 32px;
             margin-top: 8px;
             .nav-item{
+                padding: 0 5px;
                 margin-right: 25px;
                 .nav-link{
                     transition: $transition-ease;
+                    padding: 5px;
+                    border-radius: 5px;
                     &:hover{
                         opacity: 0.95;
                     }
@@ -93,6 +99,10 @@
                 }
             }
         }
+    }
+    .nav-link:hover{
+        background-color: rgb(211, 191, 42);
+        color: black;
     }
 }
 

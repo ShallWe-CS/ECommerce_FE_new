@@ -1,0 +1,27 @@
+.nav-dropdown{
+    padding: 5px 0;
+    width: 14rem;
+    position: absolute;
+    list-style: none;
+    text-align: start;
+    z-index: 1000;
+
+    .item{
+        position: relative;
+        width: 100%;
+        text-decoration: none;
+        color: white;
+        padding: 10px;
+        text-align: center;
+    }
+
+    .item:hover{
+        background-color: rgb(211, 191, 42);
+        color: black;
+    }
+}
+
+.nav-dropdown li{
+    background: rgb(102, 0, 0);
+    cursor: pointer;
+}
