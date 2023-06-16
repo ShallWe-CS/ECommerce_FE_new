@@ -76,7 +76,7 @@ const HomePage = () => {
               <div className='title-md'>
                 <h3>What Our Customers Say?</h3>
               </div>
-              <div class="comment comment flex-lists grid">
+              <div class="comment comment-lists flex-lists grid">
                 <div>
                   <p className='paragraph'>"Pissu Kanna's 'OW' T-Shirt is amazing! It's super comfortable and always fires up a conversation when I am at a gathering. Me and my gf both have it in two colours!"</p>
                   <div className='customer flex align-center justify-between'>
