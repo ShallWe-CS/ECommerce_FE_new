@@ -76,7 +76,14 @@ const HomePage = () => {
               <div className='title-md'>
                 <h3>What Our Customers Say?</h3>
               </div>
-              <div class="comment flex-lists grid">
+              <div class="comment flex-cmnt-lists grid">
+                <div>
+                  <p className='paragraph'>"Pissu Kanna's 'OW' T-Shirt is amazing! It's super comfortable and always fires up a conversation when I am at a gathering. Me and my gf both have it in two colours!"</p>
+                  <div className='customer flex align-center justify-between'>
+                    <h2 className='name px-4'>Samosh Perera</h2>
+                    <i class="fa-solid fa-quote-right fa-2xl px-4"></i>
+                  </div>
+                </div>
                 <div>
                   <p className='paragraph'>"Pissu Kanna's 'OW' T-Shirt is amazing! It's super comfortable and always fires up a conversation when I am at a gathering. Me and my gf both have it in two colours!"</p>
                   <div className='customer flex align-center justify-between'>
