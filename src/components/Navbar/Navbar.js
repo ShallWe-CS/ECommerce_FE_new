@@ -108,9 +108,9 @@ const Navbar = () => {
                 onMouseEnter={() => setDropdown(true)}
                 onMouseLeave={() => setDropdown(false)}
               >
-                <div className="flex align-center">
+                <div className=" nav-link flex align-center">
                   <i class="fa-solid fa-shirt px-2"></i>
-                  <Link to="" className="nav-link text-capitalize">
+                  <Link to="" className=" text-capitalize">
                     {<h2>Merchandise</h2>}
                   </Link>
                 </div>
@@ -119,25 +119,25 @@ const Navbar = () => {
                 {dropdown && <NavDropDown />}
               </li>
               <li className="nav-item no-wrap">
-                <div className="flex align-center">
+                <div className="nav-link flex align-center">
                   <i class="fa-solid fa-champagne-glasses px-2"></i>
-                  <Link to={`/event`} className="nav-link text-capitalize">
+                  <Link to={`/event`} className=" text-capitalize">
                     {<h2>Events</h2>}
                   </Link>
                 </div>
               </li>
               <li className="nav-item no-wrap">
-                <div className="flex align-center">
+                <div className="nav-link flex align-center">
                   <i class="fa-solid fa-face-smile px-2"></i>
-                  <Link className="nav-link text-capitalize">
+                  <Link className="text-capitalize">
                     {<h2>Sales</h2>}
                   </Link>
                 </div>
               </li>
               <li className="nav-item no-wrap">
-                <div className="flex align-center">
+                <div className="nav-link flex align-center">
                   <i class="fa-solid fa-file-lines px-2"></i>
-                  <Link to={`/sizeGuide`} className="nav-link text-capitalize">
+                  <Link to={`/sizeGuide`} className=" text-capitalize">
                     {<h2>Size Guide</h2>}
                   </Link>
                 </div>
