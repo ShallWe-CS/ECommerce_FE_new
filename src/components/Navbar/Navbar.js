@@ -110,7 +110,7 @@ const Navbar = () => {
               >
                 <div className="flex align-center">
                   <i class="fa-solid fa-shirt px-2"></i>
-                  <Link to="/" className="nav-link text-capitalize">
+                  <Link to="" className="nav-link text-capitalize">
                     {<h2>Merchandise</h2>}
                   </Link>
                 </div>
