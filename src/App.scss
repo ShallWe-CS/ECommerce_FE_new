@@ -11,8 +11,8 @@ $clr-whitesmoke: #F5F5F5;
 $clr-dark: #212529;
 $clr-danger: #DC3545;
 $clr-gray: #929292;
-$font-family-manrope: 'Manrope', sans-serif;
-$font-family-poppins: 'Poppins', sans-serif;
+$font-family-manrope: 'Futura', sans-serif;
+$font-family-poppins: 'Futura', sans-serif;
 $transition-ease: all 300ms ease-in-out;
 
 // global styles & resets
@@ -74,6 +74,8 @@ input, textarea, select{
     margin: 0 auto;
     padding: 0 2rem;
 }
+
+
 
 /* flexbox and grid */
 .flex{

@@ -19,7 +19,7 @@ const HeaderSlider = () => {
 
   return (
     <div className='slider'>
-      <div className='container'>
+      <div className='container-slider'>
         <div className='slider-content overflow-x-hidden'>
           <Slider {...settings}>
             <div className='slider-item'>

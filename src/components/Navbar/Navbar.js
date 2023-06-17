@@ -33,7 +33,7 @@ const Navbar = () => {
     <>
       <nav className="navbar">
         <div className="navbar-cnt flex align-center">
-          <div className="brand-and-toggler flex align-center">
+          <div className="brand-and-toggler flex align-start">
             <button
               type="button"
               className="sidebar-show-btn text-white"
@@ -41,7 +41,7 @@ const Navbar = () => {
             >
               <i className="fas fa-bars"></i>
             </button>
-            <Link to="/" className="navbar-brand flex align-center">
+            <Link to="/" className="navbar-brand flex align-start">
               <span className="navbar-brand-ico">
                 <i className="fa-solid fa-bag-shopping"></i>
               </span>
@@ -109,10 +109,11 @@ const Navbar = () => {
                 onMouseLeave={() => setDropdown(false)}
               >
                 <div className=" nav-link flex align-center">
-                  <i class="fa-solid fa-shirt px-2"></i>
+                  {/* <i class="fa-solid fa-shirt px-2"></i> */}
                   <Link to="" className=" text-capitalize">
-                    {<h2>Merchandise</h2>}
+                    {<h2 className="navh2">Merchandise</h2>}
                   </Link>
+                  <i class="fa-solid fa-circle-chevron-down px-2"></i>
                 </div>
 
                 {/* <NavDropDown /> */}
@@ -120,25 +121,25 @@ const Navbar = () => {
               </li>
               <li className="nav-item no-wrap">
                 <div className="nav-link flex align-center">
-                  <i class="fa-solid fa-champagne-glasses px-2"></i>
+                  {/* <i class="fa-solid fa-champagne-glasses px-2"></i> */}
                   <Link to={`/event`} className=" text-capitalize">
-                    {<h2>Events</h2>}
+                    {<h2 className="navh2">Events</h2>}
                   </Link>
                 </div>
               </li>
               <li className="nav-item no-wrap">
                 <div className="nav-link flex align-center">
-                  <i class="fa-solid fa-face-smile px-2"></i>
+                  {/* <i class="fa-solid fa-face-smile px-2"></i> */}
                   <Link className="text-capitalize">
-                    {<h2>Sales</h2>}
+                    {<h2 className="navh2">Sales</h2>}
                   </Link>
                 </div>
               </li>
               <li className="nav-item no-wrap">
                 <div className="nav-link flex align-center">
-                  <i class="fa-solid fa-file-lines px-2"></i>
+                  {/* <i class="fa-solid fa-file-lines px-2"></i> */}
                   <Link to={`/sizeGuide`} className=" text-capitalize">
-                    {<h2>Size Guide</h2>}
+                    {<h2 className="navh2">Size Guide</h2>}
                   </Link>
                 </div>
               </li>
