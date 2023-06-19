@@ -28,9 +28,7 @@ const ProductSinglePage = () => {
   const [quantity, setQuantity] = useState(1);
   const cartMessageStatus = useSelector(getCartMessageStatus);
   const [selected, setSelected] = useState("Size");
-  //adding the state of selecting a size before adding to cart
   const [sizeSelected, setSizeSelected] = useState(false);
-  // const [url, setUrl] = useState();
   const [showSizeMessage, setShowSizeMessage] = useState(false);
 
   // getting single product
@@ -69,25 +67,23 @@ const ProductSinglePage = () => {
 
   const addToCartHandler = (product) => {
     if (!selected || selected === "Size") {
-      //alert('Please select a size before adding to cart');
-      //  {<SelectSizeMessage />}
       setShowSizeMessage(true);
 
-      // Hide the message after 3 seconds
       setTimeout(() => {
         setShowSizeMessage(false);
       }, 1400);
 
-      return; // Stop execution if size is not selected
+      return;
     }
 
-    setSizeSelected(true); // Set sizeSelected to true when a size is selected
+    setSizeSelected(true);
 
     let discountedPrice =
       product[0]?.attributes.price -
       product[0]?.attributes.price * (product[0]?.attributes.discount / 100);
     let totalPrice = quantity * discountedPrice;
     let size = selected; //part which will show the size that is selected in the cart
+    let productID = product[0].id + size;
 
     dispatch(
       addToCart({
@@ -96,6 +92,7 @@ const ProductSinglePage = () => {
         totalPrice,
         discountedPrice,
         size,
+        productID,
       })
     );
     dispatch(setCartMessageOn(true));
