@@ -8,7 +8,7 @@ import "slick-carousel/slick/slick-theme.css";
 const HeaderSlider = () => {
   let settings = {
     autoplay: true,
-    autoplaySpeed: 5000,
+    autoplaySpeed: 4000,
     arrows: false,
     dots: true,
     infinite: true,
@@ -19,7 +19,7 @@ const HeaderSlider = () => {
 
   return (
     <div className='slider'>
-      <div className='container'>
+      <div className='container-slider'>
         <div className='slider-content overflow-x-hidden'>
           <Slider {...settings}>
             <div className='slider-item'>

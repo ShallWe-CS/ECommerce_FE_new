@@ -4,7 +4,6 @@ import { STATUS } from "../utils/status";
 import {getAllProducts, getSingleProduct} from "../utils/endpoints"
 import { fetchDataFromApi } from "../utils/api";
 
-
 const initialState = {
     products: [],
     productsStatus: STATUS.IDLE,
@@ -70,4 +69,5 @@ export const getAllProduct = (state) => state.product.products;
 export const getAllProductsStatus = (state) => state.product.productsStatus;
 export const getProductSingle = (state) => state.product.productSingle;
 export const getSingleProductStatus = (state) => state.product.productSingleStatus;
+
 export default productSlice.reducer;

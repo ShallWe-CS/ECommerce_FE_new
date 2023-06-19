@@ -1,7 +1,11 @@
+@import "../../App.scss";
+
 .slider-wrapper{
-    margin: 32px 0;
+    margin-bottom: 0px 0;
+
 }
 .main-content{
+    margin-top: 15px;
     min-height: 100vh;
 }
 .categories{
@@ -10,6 +14,7 @@
 
         .title-md{
             margin-bottom: 2.8rem;
+            text-align: center;
         }
     }
 }
@@ -28,10 +33,51 @@
     }
 
     @media screen and (min-width: 1200px){
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(3, 1fr);
     }
 
     @media screen and (min-width: 1400px){
         grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.comment-lists{
+    row-gap: 2rem;
+    padding-bottom: 2rem;
+
+    @media screen and (min-width: 576px){
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 1.4rem;
+    }
+
+    @media screen and (min-width: 768px){
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media screen and (min-width: 1200px){
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    @media screen and (min-width: 1400px){
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.comment{
+    margin-top: 50px;
+    .paragraph{
+        color: #333232;
+        font-size: 16px;
+        padding: 0 20px 30px 20px;
+    }
+    .customer{
+        height: 70px;
+        background-color: #660000;
+        color: white;
+
+        .name{
+            font-size: 17.5px;
+            font-weight: 700;
+        }
     }
 }

@@ -1,6 +1,11 @@
 @import "../../App.scss";
 
 .product-single{
+    min-height: 70vh;
+}
+
+.product-single{
+
     .product-single-content{
         row-gap: 2rem;
         padding: 12px;
@@ -12,12 +17,13 @@
 
         .product-single-l{
             .product-img{
+                gap: 20px;
                 .product-img-zoom{
                     height: 380px;
                     overflow: hidden;
                 }
                 .product-img-thumbs{
-                    overflow-x: scroll;
+                    overflow-x: hidden;
 
                     &::-webkit-scrollbar{
                         height: 5px;
@@ -136,7 +142,25 @@
         }
 
         @media screen and (min-width: 992px){
+            grid-template-columns: repeat(2, 1fr);
+            column-gap: 4rem;
+        }
 
+        .toggle-flex{
+            @media screen and (min-width: 576px){
+                display: flex;
+                flex-direction: row;
+            }
+            display: flex;
+            flex-direction: column;
+        }
+        .toggle-flex-2{
+            @media screen and (min-width: 576px){
+                display: flex;
+                flex-direction: column;
+            }
+            display: flex;
+            flex-direction: row;
         }
     }
 }

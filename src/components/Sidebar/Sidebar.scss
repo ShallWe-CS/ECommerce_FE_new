@@ -62,3 +62,9 @@
 .hide-sidebar{
     transform: translateX(0);
 }
+
+@media (min-width: 992px) {
+    .sidebar {
+      display: none;
+    }
+  }

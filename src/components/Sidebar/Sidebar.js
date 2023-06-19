@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import "./Sidebar.scss";
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
@@ -11,12 +11,31 @@ const Sidebar = () => {
   const isSidebarOn = useSelector(getSidebarStatus);
   const categories = useSelector(getAllCategories);
 
+  const sidebarRef = useRef(null);
+
   useEffect(() => {
-    dispatch(fetchAsyncCategories())
-  }, [dispatch])
+    dispatch(fetchAsyncCategories());
+    document.addEventListener('mousedown', handleOutsideClick);
+
+    return () => {
+      document.removeEventListener('mousedown', handleOutsideClick);
+    };
+  }, [dispatch]);
+
+  const handleOutsideClick = (event) => {
+    if (sidebarRef.current && !sidebarRef.current.contains(event.target)) {
+      dispatch(setSidebarOff());
+    }
+  };
+
+  const handleListItemClick = () => {
+    dispatch(setSidebarOff());
+  };
 
   return (
-    <aside className={`sidebar ${isSidebarOn ? 'hide-sidebar' : ""}`}>
+    <aside 
+    ref = {sidebarRef}
+    className={`sidebar ${isSidebarOn ? 'hide-sidebar' : ""}`}>
       <button type="button" className='sidebar-hide-btn' onClick={() => dispatch(setSidebarOff())}>
         <i className='fas fa-times'></i>
       </button>
@@ -33,16 +52,19 @@ const Sidebar = () => {
             })
           } */}
           <li className='nav-item no-wrap'>
-            <Link className='nav-link text-capitalize'>{<h4>Shirts</h4>}</Link>
+            <Link to = {`category/Shirt`}  className='nav-link text-capitalize'>{<h4>Shirts</h4>}</Link>
           </li>
           <li className='nav-item no-wrap'>
-            <Link className='nav-link text-capitalize'>{<h4>T-Shirts</h4>}</Link>
+            <Link to = {`category/Tshirt`} className='nav-link text-capitalize'>{<h4>T-Shirts</h4>}</Link>
           </li>
           <li className='nav-item no-wrap'>
-            <Link className='nav-link text-capitalize'>{<h4>OverSize</h4>}</Link>
+            <Link to = {`category/Oversize`} className='nav-link text-capitalize'>{<h4>OverSize</h4>}</Link>
           </li>
           <li className='nav-item no-wrap'>
-            <Link className='nav-link text-capitalize'>{<h4>Events</h4>}</Link>
+            <Link Link to = {`/event`} className='nav-link text-capitalize'>{<h4>Events</h4>}</Link>
+          </li>
+          <li className='nav-item no-wrap'>
+           <Link className='nav-link text-capitalize'>{<h4>Sales</h4>}</Link>
           </li>
         </ul>
       </div>

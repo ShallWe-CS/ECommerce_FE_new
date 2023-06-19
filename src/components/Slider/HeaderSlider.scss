@@ -1,6 +1,12 @@
 .slider-item{
-    max-height: 300px;
+    max-height:max-content;
 }
 .slider-content{
     overflow-y: hidden;
+}
+
+.container-slider{
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0rem;
 }
