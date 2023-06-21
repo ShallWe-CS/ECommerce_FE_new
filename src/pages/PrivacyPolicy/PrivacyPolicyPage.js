@@ -36,15 +36,13 @@ const PrivacyPolicyPage = () => {
                     For all our services, the data controller — the company that’s responsible for your privacy— is pissukanna.com </p>
                 <h3 className='my-3'>SHARING YOUR INFORMATION</h3>
                 <p>We do not, and will not, sell any of your personal data to any third party – including your name, address, email address or credit card information. We want to earn and maintain your trust, and we believe this is absolutely essential in order do that.
-
-  However, we share your data with the following categories of companies as an essential part of being able to provide our services to you, as set out in this statement:
-
-  Companies in the Pissu Kanna group, as sometimes different bits of our group are responsible for different activities (especially licensed ones)
-  Companies that do things to get your purchases to you, such as payment service providers, warehouses, order packers, and delivery companies
-  Professional service providers, such as marketing agencies, advertising partners and website hosts, who help us run our business
-  Credit reference agencies, law enforcement and fraud prevention agencies, so we can help tackle fraud
-  Companies approved by you, such as social media sites (if you choose to link your accounts to us).
-  We may provide third parties with aggregated but anonymised information and analytics about our customers and, before we do so, we will make sure that it does not identify you.</p>
+                    However, we share your data with the following categories of companies as an essential part of being able to provide our services to you, as set out in this statement:
+                    Companies in the Pissu Kanna group, as sometimes different bits of our group are responsible for different activities (especially licensed ones)
+                    Companies that do things to get your purchases to you, such as payment service providers, warehouses, order packers, and delivery companies
+                    Professional service providers, such as marketing agencies, advertising partners and website hosts, who help us run our business
+                    Credit reference agencies, law enforcement and fraud prevention agencies, so we can help tackle fraud
+                    Companies approved by you, such as social media sites (if you choose to link your accounts to us).
+                    We may provide third parties with aggregated but anonymised information and analytics about our customers and, before we do so, we will make sure that it does not identify you.</p>
 
               </div>
             </div>
