@@ -8,6 +8,7 @@ h3{
 
 .tp1{
     font-family: $font-family-poppins;
+    font-size: 24px;
     font-weight: 100;
     padding-bottom: 1%;
     padding-top: 2%;
@@ -24,6 +25,18 @@ h3{
 }
 .p2{
     
+    font-family: 'Futura', sans-serif;
+    color: rgba(0, 0, 0, 0.733);
+    font-size: 15px;
+    font-weight: 100;
+    padding-bottom: 2%;
+    margin-left: 10%;
+    text-align: justify;
+}
+
+.list{
+    list-style: inherit;
+    margin-bottom: 4px;
     font-family: 'Futura', sans-serif;
     color: rgba(0, 0, 0, 0.733);
     font-size: 15px;
