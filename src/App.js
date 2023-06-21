@@ -15,8 +15,6 @@ import { Security, LoginCallback } from '@okta/okta-react';
 import LoginWidget from './components/Auth/LoginWidget';
 import { toRelativeUrl } from "@okta/okta-auth-js"
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client"
-import SizeGuidePage from './pages/SizeGuide/SizeGuidePage';
-import PrivacyPolicyPage from './pages/PrivacyPolicy/PrivacyPolicyPage';
 
 const oktaAuth = new OktaAuth(oktaConfig);
 

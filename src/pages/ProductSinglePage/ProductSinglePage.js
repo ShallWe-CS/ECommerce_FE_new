@@ -117,13 +117,13 @@ const ProductSinglePage = () => {
         <div className="container">
           <div className="product-single-content bg-white grid">
             <div className="product-single-l">
-              <div className="product-img flex toggle-flex">
+              <div className="product-img">
                 <div className="product-img-zoom">
                   {/* <img src = {product?(product.images ? `data:image/jpg;base64,${product.images[0].img}` : "") : ""} alt = "" className='img-cover' /> */}
                   <img src={url1} alt="" className="img-cover" />
                 </div>
 
-                <div className="product-img-thumbs toggle-flex-2 align-center my-2">
+                <div className="product-img-thumbs toggle-flex-1 align-center my-2">
                   <div className="thumb-item">
                     <img src={url1} alt="" className="img-cover" />
                   </div>
