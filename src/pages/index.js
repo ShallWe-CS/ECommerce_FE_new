@@ -6,5 +6,6 @@ import Search from "./SearchPage/SearchPage";
 import Form from "./FormPage/Form/Form";
 import SizeGuide from "../pages/SizeGuide/SizeGuidePage";
 import EventPage from "./EventPage/EventPage";
+import PrivacyPolicy from "../pages/PrivacyPolicy/PrivacyPolicyPage";
 
-export {Home, CategoryProduct, ProductSingle, Cart, Search, Form, SizeGuide, EventPage};
+export {Home, CategoryProduct, ProductSingle, Cart, Search, Form, SizeGuide, EventPage, PrivacyPolicy};
