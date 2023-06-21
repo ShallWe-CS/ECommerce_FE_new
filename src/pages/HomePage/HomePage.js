@@ -94,7 +94,7 @@ const HomePage = () => {
                 <div>
                   <p className='paragraph'>"Pissu Kanna's 'OW' T-Shirt is amazing! It's super comfortable and always fires up a conversation when I am at a gathering. Me and my gf both have it in two colours!"</p>
                   <div className='customer flex align-center justify-between'>
-                    <h2 className='name px-4'>Chethiya Galkaduwa</h2>
+                    <h2 className='name px-4'>Sameera Dayaratne</h2>
                     <i class="fa-solid fa-quote-right fa-2xl px-4"></i>
                   </div>
                 </div>

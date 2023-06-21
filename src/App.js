@@ -2,7 +2,7 @@ import './App.scss';
 // react router v6
 import { Routes, Route, useNavigate, BrowserRouter } from 'react-router-dom';
 // pages
-import { Home, CategoryProduct, ProductSingle, Cart, Search, Form, SizeGuide, EventPage, PrivacyPolicy }  from "./pages/index";
+import { Home, CategoryProduct, ProductSingle, Cart, Search, Form, SizeGuide, EventPage, PrivacyPolicy, EventSingle }  from "./pages/index";
 // components
 import Header from "./components/Header/Header"
 import Sidebar from "./components/Sidebar/Sidebar";
@@ -62,6 +62,7 @@ function App() {
               <Route path="/sizeGuide" element={<SizeGuide />} />
               <Route path="/PrivacyPolicy" element={<PrivacyPolicy />} />
               <Route path="/event" element={<EventPage />} />
+              <Route path="/EventSinglePage" element={<EventSingle />} />
             </Routes>
             <Footer />
           </ApolloProvider>
