@@ -12,7 +12,7 @@ const PrivacyPolicyPage = () => {
             </div>
 
             <div className='my-4'>
-                <h3 className='my-3'>Privacy policy</h3>
+                <h3 className='my-3'></h3>
                 <p>We’ll always keep your data safe and secure. So you’re clued up, here’s why we need it and how we use it.<br>
                 </br>To take the measurement correctly, lay down the garment on a flat surface and measure along the lines shown in the pictures below.</p>
             </div>
