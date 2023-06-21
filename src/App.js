@@ -2,9 +2,9 @@ import './App.scss';
 // react router v6
 import { Routes, Route, useNavigate, BrowserRouter } from 'react-router-dom';
 // pages
-import { Home, CategoryProduct, ProductSingle, Cart, Search, Form, SizeGuide, EventPage} from "./pages/index";
+import { Home, CategoryProduct, ProductSingle, Cart, Search, Form, SizeGuide, EventPage, PrivacyPolicy }  from "./pages/index";
 // components
-import Header from "./components/Header/Header";
+import Header from "./components/Header/Header"
 import Sidebar from "./components/Sidebar/Sidebar";
 import Footer from "./components/Footer/Footer";
 import store from "./store/store";
@@ -16,6 +16,7 @@ import LoginWidget from './components/Auth/LoginWidget';
 import { toRelativeUrl } from "@okta/okta-auth-js"
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client"
 import SizeGuidePage from './pages/SizeGuide/SizeGuidePage';
+import PrivacyPolicyPage from './pages/PrivacyPolicy/PrivacyPolicyPage';
 
 const oktaAuth = new OktaAuth(oktaConfig);
 
@@ -59,6 +60,7 @@ function App() {
               <Route path="/form" element={<Form />} />
               {/* <Route path='/login/callback' Component={LoginCallback} /> */}
               <Route path="/sizeGuide" element={<SizeGuide />} />
+              <Route path="/PrivacyPolicy" element={<PrivacyPolicy />} />
               <Route path="/event" element={<EventPage />} />
             </Routes>
             <Footer />
