@@ -19,6 +19,16 @@ import {
 import CartMessage from "../../components/CartMessage/CartMessage";
 import SelectSizeMessage from "../../components/SelectSizeMessage/SelectSizeMessage";
 import DropDown from "../../components/DropDown/DropDown";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import {
+  fetchAsyncProducts,
+  getAllProduct,
+  getAllProductsStatus,
+} from "../../store/productSlice";
+import Product from "../../components/Product/Product";
+import { Navigation, Pagination, Scrollbar, A11y } from "swiper";
+import "swiper/css/navigation";
 
 const ProductSinglePage = () => {
   const { id } = useParams();
@@ -41,6 +51,16 @@ const ProductSinglePage = () => {
       }, 2000);
     }
   }, [cartMessageStatus]);
+
+  const products = useSelector(getAllProduct);
+
+  const relateProducts = [];
+
+  if (products !== undefined) {
+    for (let i = 0; i < 5; i++) {
+      relateProducts.push(products[i]);
+    }
+  }
 
   let discountedPrice =
     product[0]?.attributes.price -
@@ -110,7 +130,6 @@ const ProductSinglePage = () => {
       dropDownArray.push(dropDownItems[i].attributes.size);
     }
   }
-
   return (
     <main className="single-product py-5 bg-whitesmoke">
       <div className="product-single">
@@ -131,7 +150,7 @@ const ProductSinglePage = () => {
                     <img src={url2} alt="" className="img-cover" />
                   </div>
                   <div className="thumb-item">
-                    <img src={url1} alt="" className="img-cover" />
+                    <img src={url2} alt="" className="img-cover" />
                   </div>
                 </div>
               </div>
@@ -265,7 +284,9 @@ const ProductSinglePage = () => {
                     </ul>
                   </div>
                   <div className="details">
-                    <div className="detail-title">Materials & Care Insturctions</div>
+                    <div className="detail-title">
+                      Materials & Care Insturctions
+                    </div>
                     <ul>
                       <li className="li1">The Relax Tee is an oversized T-Shirt (6XL) that comes in one FREE size that fits almost anyone! - Lovingly crafted from the best, most cuddly-soft materials:</li>
                     </ul>
@@ -273,6 +294,59 @@ const ProductSinglePage = () => {
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+        <div className="container related-products">
+          <div className="bg-white">
+            <h2 className="title">You may also Like!</h2>
+            <Swiper
+              modules={[Navigation]}
+              spaceBetween={50}
+              slidesPerView={4}
+              breakpoints={{
+                0: {
+                  slidesPerView: 1,
+                },
+                400: {
+                  slidesPerView: 1,
+                },
+                639: {
+                  slidesPerView: 3,
+                },
+                865: {
+                  slidesPerView: 4,
+                },
+                1000: {
+                  slidesPerView: 4,
+                },
+                1500: {
+                  slidesPerView: 4,
+                },
+                1700: {
+                  slidesPerView: 4,
+                },
+              }}
+              navigation
+              onSlideChange={() => console.log("slide change")}
+              onSwiper={(swiper) => console.log(swiper)}
+            >
+              {relateProducts.map((product) => {
+                let discountedPrice =
+                  product.attributes.price -
+                  product.attributes.price *
+                    (product.attributes.discount / 100);
+                return (
+                  <SwiperSlide>
+                    {
+                      <Product
+                        key={product.id}
+                        product={{ ...product, discountedPrice }}
+                      />
+                    }
+                  </SwiperSlide>
+                );
+              })}
+            </Swiper>
           </div>
         </div>
       </div>
