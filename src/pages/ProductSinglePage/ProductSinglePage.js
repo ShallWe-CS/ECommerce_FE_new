@@ -130,6 +130,9 @@ const ProductSinglePage = () => {
                   <div className="thumb-item">
                     <img src={url2} alt="" className="img-cover" />
                   </div>
+                  <div className="thumb-item">
+                    <img src={url1} alt="" className="img-cover" />
+                  </div>
                 </div>
               </div>
             </div>
@@ -257,20 +260,15 @@ const ProductSinglePage = () => {
                 <div>
                   <div className="details">
                     <div className="detail-title">Details</div>
-                    <p>
-                      - Can’t contain your bossy attitude?! No need! Show who's
-                      the boss in our new Relax Tee! When you can't express what
-                      you need with a mango, this adorable Relax Tee comes
-                      pretty close.
-                    </p>
+                    <ul>
+                      <li className="li1">Can’t contain your bossy attitude?! No need! Show who's the boss in our new Relax Tee! When you can't express what you need with a mango, this adorable Relax Tee comes pretty close.</li>
+                    </ul>
                   </div>
                   <div className="details">
                     <div className="detail-title">Materials & Care Insturctions</div>
-                    <p>
-                      - The Relax Tee is an oversized T-Shirt (6XL) that comes
-                      in one FREE size that fits almost anyone! - Lovingly
-                      crafted from the best, most cuddly-soft materials:
-                    </p>
+                    <ul>
+                      <li className="li1">The Relax Tee is an oversized T-Shirt (6XL) that comes in one FREE size that fits almost anyone! - Lovingly crafted from the best, most cuddly-soft materials:</li>
+                    </ul>
                   </div>
                 </div>
               </div>
