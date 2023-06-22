@@ -120,10 +120,10 @@ const ProductSinglePage = () => {
               <div className="product-img">
                 <div className="product-img-zoom">
                   {/* <img src = {product?(product.images ? `data:image/jpg;base64,${product.images[0].img}` : "") : ""} alt = "" className='img-cover' /> */}
-                  <img src={url1} alt="" className="img-cover" />
+                  <img src={url1} alt="" className="img-cover img-main" />
                 </div>
 
-                <div className="product-img-thumbs toggle-flex-1 align-center my-2">
+                <div className="product-img-thumbs flex align-center my-2">
                   <div className="thumb-item">
                     <img src={url1} alt="" className="img-cover" />
                   </div>
@@ -139,23 +139,23 @@ const ProductSinglePage = () => {
                 <div className="title fs-20 fw-5">
                   {product[0]?.attributes.product_title}
                 </div>
-                <div>
+                {/* <div>
                   <p className="para fw-3 fs-15">{product?.description}</p>
-                </div>
+                </div> */}
                 <div className="info flex align-center flex-wrap fs-14">
-                  <div className="rating">
+                  {/* <div className="rating">
                     <span className="text-orange fw-5">Rating:</span>
                     <span className="mx-1">{product?.rating}</span>
-                  </div>
-                  <div className="vert-line"></div>
-                  <div className="brand">
+                  </div> */}
+                  {/* <div className="vert-line"></div> */}
+                  {/* <div className="brand">
                     <span className="text-orange fw-5">Brand:</span>
                     <span className="mx-1">
                       {product[0]?.attributes.product_brand}
                     </span>
-                  </div>
-                  <div className="vert-line"></div>
-                  <div className="brand">
+                  </div> */}
+                  {/* <div className="vert-line"></div> */}
+                  {/* <div className="brand">
                     <span className="text-orange fw-5">Category:</span>
                     <span className="mx-1 text-capitalize">
                       {product[0]?.attributes.categories.data[0].attributes
@@ -166,28 +166,33 @@ const ProductSinglePage = () => {
                           )
                         : ""}
                     </span>
-                  </div>
+                  </div> */}
                 </div>
 
                 <div className="price">
                   <div className="flex align-center">
+                    <div className="new-price fw-5 font-poppins fs-24 text-orange">
+                      {formatPrice(discountedPrice)}
+                    </div>
                     <div className="old-price text-gray">
                       {formatPrice(product[0]?.attributes.price)}
                     </div>
-                    <span className="fs-14 mx-2 text-dark">
+                    {/* <span className="fs-14 mx-2 text-dark">
                       Inclusive of all taxes
-                    </span>
+                    </span> */}
                   </div>
 
-                  <div className="flex align-center my-1">
+                  {/* <div className="flex align-center my-1">
                     <div className="new-price fw-5 font-poppins fs-24 text-orange">
                       {formatPrice(discountedPrice)}
                     </div>
                     <div className="discount bg-orange fs-13 text-white fw-6 font-poppins">
                       {product?.discountPercentage}% OFF
                     </div>
-                  </div>
+                  </div> */}
                 </div>
+
+                <div className="color">Color: Blue</div>
 
                 <div className="qty flex toggle-flex align-center my-4">
                   <div className="flex">
@@ -244,9 +249,29 @@ const ProductSinglePage = () => {
                       add to cart
                     </span>
                   </button>
-                  <button type="button" className="buy-now btn mx-3">
+                  {/* <button type="button" className="buy-now btn mx-3">
                     <span className="btn-text">buy now</span>
-                  </button>
+                  </button> */}
+                </div>
+
+                <div>
+                  <div className="details">
+                    <div className="detail-title">Details</div>
+                    <p>
+                      - Can’t contain your bossy attitude?! No need! Show who's
+                      the boss in our new Relax Tee! When you can't express what
+                      you need with a mango, this adorable Relax Tee comes
+                      pretty close.
+                    </p>
+                  </div>
+                  <div className="details">
+                    <div className="detail-title">Materials & Care Insturctions</div>
+                    <p>
+                      - The Relax Tee is an oversized T-Shirt (6XL) that comes
+                      in one FREE size that fits almost anyone! - Lovingly
+                      crafted from the best, most cuddly-soft materials:
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
