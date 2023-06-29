@@ -150,7 +150,7 @@ const Navbar = () => {
             <Link to="/cart" className="cart-btn">
               <i className="fa-solid fa-cart-shopping"></i>
               <div className="cart-items-value">{itemsCount}</div>
-              <CartModal carts={carts} />
+              {/* <CartModal carts={carts} /> */}
             </Link>
           </div>
         </div>
