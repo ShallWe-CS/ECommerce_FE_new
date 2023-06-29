@@ -28,9 +28,7 @@ const Sidebar = () => {
     }
   };
 
-  const handleListItemClick = () => {
-    dispatch(setSidebarOff());
-  };
+  console.log("render again");
 
   return (
     <aside 
@@ -52,19 +50,19 @@ const Sidebar = () => {
             })
           } */}
           <li className='nav-item no-wrap'>
-            <Link to = {`category/Shirt`}  className='nav-link text-capitalize'>{<h4>Shirts</h4>}</Link>
+            <Link to = {`category/Shirt`}  className='nav-link text-capitalize' onClick={() => dispatch(setSidebarOff())}>{<h4>Shirts</h4>}</Link>
           </li>
           <li className='nav-item no-wrap'>
-            <Link to = {`category/Tshirt`} className='nav-link text-capitalize'>{<h4>T-Shirts</h4>}</Link>
+            <Link to = {`category/Tshirt`} className='nav-link text-capitalize' onClick={() => dispatch(setSidebarOff())}>{<h4>T-Shirts</h4>}</Link>
           </li>
           <li className='nav-item no-wrap'>
-            <Link to = {`category/Oversize`} className='nav-link text-capitalize'>{<h4>OverSize</h4>}</Link>
+            <Link to = {`category/Oversize`} className='nav-link text-capitalize' onClick={() => dispatch(setSidebarOff())}>{<h4>OverSize</h4>}</Link>
           </li>
           <li className='nav-item no-wrap'>
-            <Link Link to = {`/event`} className='nav-link text-capitalize'>{<h4>Events</h4>}</Link>
+            <Link Link to = {`/event`} className='nav-link text-capitalize' onClick={() => dispatch(setSidebarOff())}>{<h4>Events</h4>}</Link>
           </li>
           <li className='nav-item no-wrap'>
-           <Link className='nav-link text-capitalize'>{<h4>Sales</h4>}</Link>
+           <Link className='nav-link text-capitalize' onClick={() => dispatch(setSidebarOff())}>{<h4>Sales</h4>}</Link>
           </li>
         </ul>
       </div>
