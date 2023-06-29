@@ -36,6 +36,7 @@ const CartPage = () => {
       </div>
     );
   }
+  
 
   // const stripePromise = loadStripe(
   //   process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY
@@ -65,10 +66,10 @@ const CartPage = () => {
           <div className="cart-chead bg-white">
             <div className="cart-ctr fw-6 font-manrope fs-15">
               <div className="cart-cth">
-                <span className="cart-ctxt">S.N.</span>
+                <span className="cart-ctxt">Product</span>
               </div>
               <div className="cart-cth">
-                <span className="cart-ctxt">Product</span>
+                <span className="cart-ctxt"></span>
               </div>
               <div className="cart-cth">
                 <span className="cart-ctxt">Unit Price</span>
@@ -87,12 +88,15 @@ const CartPage = () => {
 
           <div className="cart-cbody bg-white">
             {carts.map((cart, idx) => {
+              console.log(cart);
               return (
                 <div className="cart-ctr py-4" key={cart?.productID}>
                   <div className="cart-ctd">
-                    <span className="cart-ctxt">{idx + 1}</span>
+                    <span>
+                      <img src = {cart[0].attributes.images.data[0].attributes.url} alt = "" className='img-cover' />
+                    </span>
                   </div>
-                  <div className="cart-ctd">
+                  <div className="cart-ctd mx-5">
                     {/* <span className='cart-ctxt'>{cart[0]?.attributes.product_title}</span> */}
                     <span className="cart-ctxt">
                       {cart[0]?.attributes.product_title + ` - ` + cart.size}
