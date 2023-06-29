@@ -9,7 +9,6 @@ const Sidebar = () => {
 
   const dispatch = useDispatch();
   const isSidebarOn = useSelector(getSidebarStatus);
-  const categories = useSelector(getAllCategories);
 
   const sidebarRef = useRef(null);
 
@@ -27,8 +26,6 @@ const Sidebar = () => {
       dispatch(setSidebarOff());
     }
   };
-
-  console.log("render again");
 
   return (
     <aside 
