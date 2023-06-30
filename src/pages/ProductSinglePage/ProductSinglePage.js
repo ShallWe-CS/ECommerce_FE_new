@@ -21,16 +21,6 @@ import SelectSizeMessage from "../../components/SelectSizeMessage/SelectSizeMess
 import DropDown from "../../components/DropDown/DropDown";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
-import {
-  fetchAsyncProducts,
-  getAllProduct,
-  getAllProductsStatus,
-} from "../../store/productSlice";
-import Product from "../../components/Product/Product";
-import { Navigation, Pagination, Scrollbar, A11y } from "swiper";
-import "swiper/css/navigation";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
 import Product from "../../components/Product/Product";
 import { Navigation } from "swiper";
 import "swiper/css/navigation";
@@ -76,8 +66,6 @@ const ProductSinglePage = () => {
       relateProducts.push(categoryProducts[i]);
     }
   }
-
-  const products = useSelector(getAllProduct);
 
   let discountedPrice =
     product[0]?.attributes.price -
@@ -147,6 +135,7 @@ const ProductSinglePage = () => {
       dropDownArray.push(dropDownItems[i].attributes.size);
     }
   }
+
   return (
     <main className="single-product py-5 bg-whitesmoke">
       <div className="product-single">
@@ -155,14 +144,11 @@ const ProductSinglePage = () => {
             <div className="product-single-l">
               <div className="product-img">
                 <div className="product-img-zoom">
-                  {baseUrl != null ? <img src={baseUrl} alt="" className="img-cover img-main" /> : <img src={url1} alt="" className="img-cover img-main img-main" />}
+                  {baseUrl != null ? <img src={baseUrl} alt="" className="img-cover img-main" /> : <img src={url1} alt="" className="img-cover img-main" />}
                 </div>
                 <div className="product-img-thumbs flex align-center my-2">
                   <div className="thumb-item">
                     <img src={url1} alt="" className="img-cover" onClick={() => setUrl(url1)}/>
-                  </div>
-                  <div className="thumb-item">
-                    <img src={url2} alt="" className="img-cover"  onClick={() => setUrl(url2)}/>
                   </div>
                   <div className="thumb-item">
                     <img src={url2} alt="" className="img-cover"  onClick={() => setUrl(url2)}/>
@@ -292,6 +278,32 @@ const ProductSinglePage = () => {
                   {/* <button type="button" className="buy-now btn mx-3">
                     <span className="btn-text">buy now</span>
                   </button> */}
+                </div>
+
+                <div>
+                  <div className="details">
+                    <div className="detail-title">Details</div>
+                    <ul>
+                      <li className="li1">
+                        Can’t contain your bossy attitude?! No need! Show who's
+                        the boss in our new Relax Tee! When you can't express
+                        what you need with a mango, this adorable Relax Tee
+                        comes pretty close.
+                      </li>
+                    </ul>
+                  </div>
+                  <div className="details">
+                    <div className="detail-title">
+                      Materials & Care Insturctions
+                    </div>
+                    <ul>
+                      <li className="li1">
+                        The Relax Tee is an oversized T-Shirt (6XL) that comes
+                        in one FREE size that fits almost anyone! - Lovingly
+                        crafted from the best, most cuddly-soft materials:
+                      </li>
+                    </ul>
+                  </div>
                 </div>
               </div>
             </div>
