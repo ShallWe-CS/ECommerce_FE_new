@@ -29,6 +29,15 @@ import {
 import Product from "../../components/Product/Product";
 import { Navigation, Pagination, Scrollbar, A11y } from "swiper";
 import "swiper/css/navigation";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import Product from "../../components/Product/Product";
+import { Navigation } from "swiper";
+import "swiper/css/navigation";
+import {
+  getAllProductsByCategory,
+  fetchAsyncProductsOfCategory,
+} from "../../store/categorySlice";
 
 const ProductSinglePage = () => {
   const { id } = useParams();
@@ -40,6 +49,8 @@ const ProductSinglePage = () => {
   const [selected, setSelected] = useState("Size");
   const [sizeSelected, setSizeSelected] = useState(false);
   const [showSizeMessage, setShowSizeMessage] = useState(false);
+  const categoryProducts = useSelector(getAllProductsByCategory);
+  const [baseUrl, setUrl] = useState();
 
   // getting single product
   useEffect(() => {
@@ -50,17 +61,23 @@ const ProductSinglePage = () => {
         dispatch(setCartMessageOff());
       }, 2000);
     }
-  }, [cartMessageStatus]);
+  }, [cartMessageStatus, id]);
 
-  const products = useSelector(getAllProduct);
+  const category = product[0]?.attributes.categories.data[0].attributes.title;
+
+  useEffect(() => {
+    dispatch(fetchAsyncProductsOfCategory(category));
+  }, []);
 
   const relateProducts = [];
 
-  if (products !== undefined) {
-    for (let i = 0; i < 5; i++) {
-      relateProducts.push(products[i]);
+  if (categoryProducts !== undefined) {
+    for (let i = 0; i < categoryProducts.length; i++) {
+      relateProducts.push(categoryProducts[i]);
     }
   }
+
+  const products = useSelector(getAllProduct);
 
   let discountedPrice =
     product[0]?.attributes.price -
@@ -138,19 +155,20 @@ const ProductSinglePage = () => {
             <div className="product-single-l">
               <div className="product-img">
                 <div className="product-img-zoom">
-                  {/* <img src = {product?(product.images ? `data:image/jpg;base64,${product.images[0].img}` : "") : ""} alt = "" className='img-cover' /> */}
-                  <img src={url1} alt="" className="img-cover img-main" />
+                  {baseUrl != null ? <img src={baseUrl} alt="" className="img-cover img-main" /> : <img src={url1} alt="" className="img-cover img-main img-main" />}
                 </div>
-
                 <div className="product-img-thumbs flex align-center my-2">
                   <div className="thumb-item">
-                    <img src={url1} alt="" className="img-cover" />
+                    <img src={url1} alt="" className="img-cover" onClick={() => setUrl(url1)}/>
                   </div>
                   <div className="thumb-item">
-                    <img src={url2} alt="" className="img-cover" />
+                    <img src={url2} alt="" className="img-cover"  onClick={() => setUrl(url2)}/>
                   </div>
                   <div className="thumb-item">
-                    <img src={url2} alt="" className="img-cover" />
+                    <img src={url2} alt="" className="img-cover"  onClick={() => setUrl(url2)}/>
+                  </div>
+                  <div className="thumb-item">
+                    <img src={url2} alt="" className="img-cover"  onClick={() => setUrl(url1)}/>
                   </div>
                 </div>
               </div>
@@ -274,23 +292,6 @@ const ProductSinglePage = () => {
                   {/* <button type="button" className="buy-now btn mx-3">
                     <span className="btn-text">buy now</span>
                   </button> */}
-                </div>
-
-                <div>
-                  <div className="details">
-                    <div className="detail-title">Details</div>
-                    <ul>
-                      <li className="li1">Can’t contain your bossy attitude?! No need! Show who's the boss in our new Relax Tee! When you can't express what you need with a mango, this adorable Relax Tee comes pretty close.</li>
-                    </ul>
-                  </div>
-                  <div className="details">
-                    <div className="detail-title">
-                      Materials & Care Insturctions
-                    </div>
-                    <ul>
-                      <li className="li1">The Relax Tee is an oversized T-Shirt (6XL) that comes in one FREE size that fits almost anyone! - Lovingly crafted from the best, most cuddly-soft materials:</li>
-                    </ul>
-                  </div>
                 </div>
               </div>
             </div>
