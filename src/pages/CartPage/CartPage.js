@@ -20,6 +20,18 @@ const CartPage = () => {
   const dispatch = useDispatch();
   const carts = useSelector(getAllCarts);
   const { itemsCount, totalAmount } = useSelector((state) => state.cart);
+  const [width, setWidth] = React.useState(window.innerWidth);
+  const breakpoint = 576;
+
+  console.log("width:", width);
+
+  useEffect(() => {
+    const handleResizeWindow = () => setWidth(window.innerWidth);
+    return () => {
+      // unsubscribe "onComponentDestroy"
+      window.removeEventListener("resize", handleResizeWindow);
+    };
+  }, []);
 
   if (carts.length === 0) {
     return (
@@ -36,7 +48,6 @@ const CartPage = () => {
       </div>
     );
   }
-  
 
   // const stripePromise = loadStripe(
   //   process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY
@@ -65,23 +76,28 @@ const CartPage = () => {
         <div className="cart-ctable">
           <div className="cart-chead bg-white">
             <div className="cart-ctr fw-6 font-manrope fs-15">
-              <div className="cart-cth">
-                <span className="cart-ctxt">Product</span>
+              <div>
+                <div className="cart-cth">
+                  <span className="cart-ctxt">Product</span>
+                </div>
+                <div className="cart-cth">
+                  <span className="cart-ctxt"></span>
+                </div>
               </div>
-              <div className="cart-cth">
-                <span className="cart-ctxt"></span>
-              </div>
-              <div className="cart-cth">
-                <span className="cart-ctxt">Unit Price</span>
-              </div>
-              <div className="cart-cth">
-                <span className="cart-ctxt">Quantity</span>
-              </div>
-              <div className="cart-cth">
-                <span className="cart-ctxt">Total Price</span>
-              </div>
-              <div className="cart-cth">
-                <span className="cart-ctxt">Actions</span>
+
+              <div className="flex cart-chead-r grid-title">
+                <div className="cart-cth">
+                  <span className="cart-ctxt">Unit Price</span>
+                </div>
+                <div className="cart-cth">
+                  <span className="cart-ctxt">Quantity</span>
+                </div>
+                <div className="cart-cth-mobile-hide">
+                  <span className="cart-ctxt">Total Price</span>
+                </div>
+                <div className="cart-cth-mobile-hide">
+                  <span className="cart-ctxt">Actions</span>
+                </div>
               </div>
             </div>
           </div>
@@ -91,68 +107,83 @@ const CartPage = () => {
               console.log(cart);
               return (
                 <div className="cart-ctr py-4" key={cart?.productID}>
-                  <div className="cart-ctd">
-                    <span>
-                      <img src = {cart[0].attributes.images.data[0].attributes.url} alt = "" className='img-cover' />
-                    </span>
-                  </div>
-                  <div className="cart-ctd mx-5">
-                    {/* <span className='cart-ctxt'>{cart[0]?.attributes.product_title}</span> */}
-                    <span className="cart-ctxt">
-                      {cart[0]?.attributes.product_title + ` - ` + cart.size}
-                    </span>
-                  </div>
-                  <div className="cart-ctd">
-                    <span className="cart-ctxt">
-                      {formatPrice(cart?.discountedPrice)}
-                    </span>
-                  </div>
-                  <div className="cart-ctd">
-                    <div className="qty-change flex align-center">
-                      <button
-                        type="button"
-                        className="qty-decrease flex align-center justify-center"
-                        onClick={() =>
-                          dispatch(
-                            toggleCartQty({ id: cart?.productID, type: "DEC" })
-                          )
-                        }
-                      >
-                        <i className="fas fa-minus"></i>
-                      </button>
-
-                      <div className="qty-value flex align-center justify-center">
-                        {cart?.quantity}
-                      </div>
-
-                      <button
-                        type="button"
-                        className="qty-increase flex align-center justify-center"
-                        onClick={() =>
-                          dispatch(
-                            toggleCartQty({ id: cart?.productID, type: "INC" })
-                          )
-                        }
-                      >
-                        <i className="fas fa-plus"></i>
-                      </button>
+                  <div className="flex">
+                    <div className="cart-ctd">
+                      <span>
+                        <img
+                          src={cart[0].attributes.images.data[0].attributes.url}
+                          alt=""
+                          className="img-cover"
+                        />
+                      </span>
+                    </div>
+                    <div className="cart-ctd mx-2">
+                      {/* <span className='cart-ctxt'>{cart[0]?.attributes.product_title}</span> */}
+                      <span className="cart-ctxt">
+                        {cart[0]?.attributes.product_title + ` - ` + cart.size}
+                      </span>
                     </div>
                   </div>
 
-                  <div className="cart-ctd">
-                    <span className="cart-ctxt text-orange fw-5">
-                      {formatPrice(cart?.totalPrice)}
-                    </span>
-                  </div>
+                  <div className="flex cart-cbody-r grid-title">
+                    <div className="cart-ctd">
+                      <span className="cart-ctxt">
+                        {formatPrice(cart?.discountedPrice)}
+                      </span>
+                    </div>
+                    <div className="cart-ctd">
+                      <div className="qty-change flex align-center">
+                        <button
+                          type="button"
+                          className="qty-decrease flex align-center justify-center"
+                          onClick={() =>
+                            dispatch(
+                              toggleCartQty({
+                                id: cart?.productID,
+                                type: "DEC",
+                              })
+                            )
+                          }
+                        >
+                          <i className="fas fa-minus"></i>
+                        </button>
 
-                  <div className="cart-ctd">
-                    <button
-                      type="button"
-                      className="delete-btn text-dark"
-                      onClick={() => dispatch(removeFromCart(cart?.productID))}
-                    >
-                      Delete
-                    </button>
+                        <div className="qty-value flex align-center justify-center">
+                          {cart?.quantity}
+                        </div>
+
+                        <button
+                          type="button"
+                          className="qty-increase flex align-center justify-center"
+                          onClick={() =>
+                            dispatch(
+                              toggleCartQty({
+                                id: cart?.productID,
+                                type: "INC",
+                              })
+                            )
+                          }
+                        >
+                          <i className="fas fa-plus"></i>
+                        </button>
+                      </div>
+                    </div>
+                    <div className="cart-ctd-mobile-hide">
+                      <span className="cart-ctxt text-orange fw-5">
+                        {formatPrice(cart?.totalPrice)}
+                      </span>
+                    </div>
+                    <div className="cart-ctd">
+                      <button
+                        type="button"
+                        className="delete-btn text-dark"
+                        onClick={() =>
+                          dispatch(removeFromCart(cart?.productID))
+                        }
+                      >
+                        Delete
+                      </button>
+                    </div>
                   </div>
                 </div>
               );
@@ -176,7 +207,7 @@ const CartPage = () => {
                 <div className="font-manrope fw-5">
                   Total ({itemsCount}) items:{" "}
                 </div>
-                <span className="text-orange fs-22 mx-2 fw-6">
+                <span className="text-orange fs-22 fw-6">
                   {formatPrice(totalAmount)}
                 </span>
               </div>
