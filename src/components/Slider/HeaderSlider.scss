@@ -1,8 +1,20 @@
 .slider-item{
     max-height:max-content;
+    overflow: hidden;
+   
 }
+
+.slider-item img {
+    height: 100%; /* Make the image fill the slider height */
+    //   width: auto; /* Maintain the original aspect ratio of the image */
+      object-fit: cover; /* Cover the entire container */
+      transform: scale(1); /* Initial scale of the image */
+      transition: transform 0.3s ease; /* Add a smooth transition effect */
+  }
+
 .slider-content{
     overflow-y: hidden;
+    
 }
 
 .container-slider{
@@ -10,3 +22,15 @@
     margin: 0 auto;
     padding: 0rem;
 }
+@media (max-width: 768px) {
+    .slider-item {
+      height: 350px; /* Increase the height for smaller screens */
+    }
+
+    .slider-item img {
+      transform: scale(1); /* Zoom in the image */
+    }
+  }
+
+  /* Styles for normal screens */
+
