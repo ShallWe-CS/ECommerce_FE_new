@@ -19,6 +19,15 @@ import {
 import CartMessage from "../../components/CartMessage/CartMessage";
 import SelectSizeMessage from "../../components/SelectSizeMessage/SelectSizeMessage";
 import DropDown from "../../components/DropDown/DropDown";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import Product from "../../components/Product/Product";
+import { Navigation } from "swiper";
+import "swiper/css/navigation";
+import {
+  getAllProductsByCategory,
+  fetchAsyncProductsOfCategory,
+} from "../../store/categorySlice";
 
 const ProductSinglePage = () => {
   const { id } = useParams();
@@ -30,6 +39,8 @@ const ProductSinglePage = () => {
   const [selected, setSelected] = useState("Size");
   const [sizeSelected, setSizeSelected] = useState(false);
   const [showSizeMessage, setShowSizeMessage] = useState(false);
+  const categoryProducts = useSelector(getAllProductsByCategory);
+  const [baseUrl, setUrl] = useState();
 
   // getting single product
   useEffect(() => {
@@ -40,7 +51,21 @@ const ProductSinglePage = () => {
         dispatch(setCartMessageOff());
       }, 2000);
     }
-  }, [cartMessageStatus]);
+  }, [cartMessageStatus, id]);
+
+  const category = product[0]?.attributes.categories.data[0].attributes.title;
+
+  useEffect(() => {
+    dispatch(fetchAsyncProductsOfCategory(category));
+  }, []);
+
+  const relateProducts = [];
+
+  if (categoryProducts !== undefined) {
+    for (let i = 0; i < categoryProducts.length; i++) {
+      relateProducts.push(categoryProducts[i]);
+    }
+  }
 
   let discountedPrice =
     product[0]?.attributes.price -
@@ -117,18 +142,19 @@ const ProductSinglePage = () => {
         <div className="container">
           <div className="product-single-content bg-white grid">
             <div className="product-single-l">
-              <div className="product-img flex toggle-flex">
+              <div className="product-img">
                 <div className="product-img-zoom">
-                  {/* <img src = {product?(product.images ? `data:image/jpg;base64,${product.images[0].img}` : "") : ""} alt = "" className='img-cover' /> */}
-                  <img src={url1} alt="" className="img-cover" />
+                  {baseUrl != null ? <img src={baseUrl} alt="" className="img-cover img-main" /> : <img src={url1} alt="" className="img-cover img-main" />}
                 </div>
-
-                <div className="product-img-thumbs toggle-flex-2 align-center my-2">
+                <div className="product-img-thumbs flex align-center my-2">
                   <div className="thumb-item">
-                    <img src={url1} alt="" className="img-cover" />
+                    <img src={url1} alt="" className="img-cover" onClick={() => setUrl(url1)}/>
                   </div>
                   <div className="thumb-item">
-                    <img src={url2} alt="" className="img-cover" />
+                    <img src={url2} alt="" className="img-cover"  onClick={() => setUrl(url2)}/>
+                  </div>
+                  <div className="thumb-item">
+                    <img src={url2} alt="" className="img-cover"  onClick={() => setUrl(url1)}/>
                   </div>
                 </div>
               </div>
@@ -139,23 +165,23 @@ const ProductSinglePage = () => {
                 <div className="title fs-20 fw-5">
                   {product[0]?.attributes.product_title}
                 </div>
-                <div>
+                {/* <div>
                   <p className="para fw-3 fs-15">{product?.description}</p>
-                </div>
+                </div> */}
                 <div className="info flex align-center flex-wrap fs-14">
-                  <div className="rating">
+                  {/* <div className="rating">
                     <span className="text-orange fw-5">Rating:</span>
                     <span className="mx-1">{product?.rating}</span>
-                  </div>
-                  <div className="vert-line"></div>
-                  <div className="brand">
+                  </div> */}
+                  {/* <div className="vert-line"></div> */}
+                  {/* <div className="brand">
                     <span className="text-orange fw-5">Brand:</span>
                     <span className="mx-1">
                       {product[0]?.attributes.product_brand}
                     </span>
-                  </div>
-                  <div className="vert-line"></div>
-                  <div className="brand">
+                  </div> */}
+                  {/* <div className="vert-line"></div> */}
+                  {/* <div className="brand">
                     <span className="text-orange fw-5">Category:</span>
                     <span className="mx-1 text-capitalize">
                       {product[0]?.attributes.categories.data[0].attributes
@@ -166,28 +192,33 @@ const ProductSinglePage = () => {
                           )
                         : ""}
                     </span>
-                  </div>
+                  </div> */}
                 </div>
 
                 <div className="price">
                   <div className="flex align-center">
+                    <div className="new-price fw-5 font-poppins fs-24 text-orange">
+                      {formatPrice(discountedPrice)}
+                    </div>
                     <div className="old-price text-gray">
                       {formatPrice(product[0]?.attributes.price)}
                     </div>
-                    <span className="fs-14 mx-2 text-dark">
+                    {/* <span className="fs-14 mx-2 text-dark">
                       Inclusive of all taxes
-                    </span>
+                    </span> */}
                   </div>
 
-                  <div className="flex align-center my-1">
+                  {/* <div className="flex align-center my-1">
                     <div className="new-price fw-5 font-poppins fs-24 text-orange">
                       {formatPrice(discountedPrice)}
                     </div>
                     <div className="discount bg-orange fs-13 text-white fw-6 font-poppins">
                       {product?.discountPercentage}% OFF
                     </div>
-                  </div>
+                  </div> */}
                 </div>
+
+                <div className="color">Color: Blue</div>
 
                 <div className="qty flex toggle-flex align-center my-4">
                   <div className="flex">
@@ -244,12 +275,91 @@ const ProductSinglePage = () => {
                       add to cart
                     </span>
                   </button>
-                  <button type="button" className="buy-now btn mx-3">
+                  {/* <button type="button" className="buy-now btn mx-3">
                     <span className="btn-text">buy now</span>
-                  </button>
+                  </button> */}
+                </div>
+
+                <div>
+                  <div className="details">
+                    <div className="detail-title">Details</div>
+                    <ul>
+                      <li className="li1">
+                        Can’t contain your bossy attitude?! No need! Show who's
+                        the boss in our new Relax Tee! When you can't express
+                        what you need with a mango, this adorable Relax Tee
+                        comes pretty close.
+                      </li>
+                    </ul>
+                  </div>
+                  <div className="details">
+                    <div className="detail-title">
+                      Materials & Care Insturctions
+                    </div>
+                    <ul>
+                      <li className="li1">
+                        The Relax Tee is an oversized T-Shirt (6XL) that comes
+                        in one FREE size that fits almost anyone! - Lovingly
+                        crafted from the best, most cuddly-soft materials:
+                      </li>
+                    </ul>
+                  </div>
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+        <div className="container related-products">
+          <div className="bg-white">
+            <h2 className="title">You may also Like!</h2>
+            <Swiper
+              modules={[Navigation]}
+              spaceBetween={50}
+              slidesPerView={4}
+              breakpoints={{
+                0: {
+                  slidesPerView: 1,
+                },
+                400: {
+                  slidesPerView: 1,
+                },
+                639: {
+                  slidesPerView: 3,
+                },
+                865: {
+                  slidesPerView: 4,
+                },
+                1000: {
+                  slidesPerView: 4,
+                },
+                1500: {
+                  slidesPerView: 4,
+                },
+                1700: {
+                  slidesPerView: 4,
+                },
+              }}
+              navigation
+              onSlideChange={() => console.log("slide change")}
+              onSwiper={(swiper) => console.log(swiper)}
+            >
+              {relateProducts.map((product) => {
+                let discountedPrice =
+                  product.attributes.price -
+                  product.attributes.price *
+                    (product.attributes.discount / 100);
+                return (
+                  <SwiperSlide>
+                    {
+                      <Product
+                        key={product.id}
+                        product={{ ...product, discountedPrice }}
+                      />
+                    }
+                  </SwiperSlide>
+                );
+              })}
+            </Swiper>
           </div>
         </div>
       </div>

@@ -5,10 +5,16 @@
 }
 
 .product-single{
+    .related-products{
+        .title{
+            padding: 20px 0;
+            text-align: center;
+        }
+    }
 
     .product-single-content{
         row-gap: 2rem;
-        padding: 12px;
+        padding: 12px 12px 20px 12px;
 
         @media screen and (min-width: 768px){
             grid-template-columns: repeat(2, 1fr);
@@ -17,13 +23,18 @@
 
         .product-single-l{
             .product-img{
+                .img-main{
+                    object-fit: contain;
+                }
                 gap: 20px;
                 .product-img-zoom{
-                    height: 380px;
+                    height: 420px;
                     overflow: hidden;
                 }
                 .product-img-thumbs{
                     overflow-x: hidden;
+                    align-items: center;
+                    justify-content: center;
 
                     &::-webkit-scrollbar{
                         height: 5px;
@@ -40,7 +51,7 @@
 
                     .thumb-item{
                         margin: 0 5px;
-                        height: 120px;
+                        height: 150px;
                         border: 2px solid $clr-white;
                         transition: $transition-ease;
                         img{
@@ -67,11 +78,15 @@
         }
 
         .product-single-r{
-            margin-top: 2rem;
+            // margin-top: 2rem;
+            background-color: rgba(250, 250, 250, 0.914);
             .product-details{
+                padding: 0% 4%;
                 .title{
                     padding-bottom: 0.6rem;
                     border-bottom: 1px solid $clr-light-gray;
+                    font-weight:700;
+                    font-size: xx-large;
                 }
                 .para{
                     margin: 1rem 0;
@@ -81,8 +96,13 @@
                     margin-bottom: 1.6rem;
                 }
                 .price{
-                    background-color: rgba(0, 0, 0, 0.02);
-                    padding: 2rem;
+                    // background-color: rgba(0, 0, 0, 0.02);
+                    padding: 0rem;
+                    .new-price{
+                        font-size: larger;
+                        font-weight: bold;
+                        padding-right: 2%;
+                    }
                     .old-price{
                         text-decoration: line-through;
                     }
@@ -100,8 +120,10 @@
                             height: 28px;
                             border: 1px solid rgba(0, 0, 0, 0.1);
                             font-size: 13px;
+                            background: #fff;
                         }
                         .qty-value{
+                            background: #fff;
                             width: 45px;
                             height: 28px;
                             border-top: 1px solid rgba(0, 0, 0, 0.1);
@@ -118,9 +140,10 @@
                     .btn{
                         height: 46px;
                         font-size: 15px;
-                        border: 1px solid $clr-orange;
+                        // border: 1px solid $clr-orange;
                         padding: 0 1.8rem;
                         transition: $transition-ease;
+                        width: 100%;
                         
                         &-text{
                             text-transform: capitalize;
@@ -130,14 +153,26 @@
                             color: $clr-orange;
                         }
                         &:last-child{
-                            background-color: $clr-orange;
+                            background-color: rgb(52, 223, 52);
                             color: white;
                         }
                         &:hover{
                             opacity: 0.9;
                         }
                     }
+
                 }
+            }
+
+            .details{
+                padding: 4% 0;
+            }
+            .detail-title{
+                padding-bottom: 2%;
+                font-weight: bold;
+            }
+            .li1{
+                text-align: justify;
             }
         }
 
@@ -163,4 +198,6 @@
             flex-direction: row;
         }
     }
+
+
 }
