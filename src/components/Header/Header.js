@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import "./Header.scss";
 import { Link } from "react-router-dom";
 import Navbar from "../Navbar/Navbar";
-import { useOktaAuth } from "@okta/okta-react";
 
 const Header = () => {
   // const { oktaAuth, authState } = useOktaAuth();

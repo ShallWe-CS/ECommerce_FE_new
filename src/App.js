@@ -9,14 +9,7 @@ import Sidebar from "./components/Sidebar/Sidebar";
 import Footer from "./components/Footer/Footer";
 import store from "./store/store";
 import { Provider } from "react-redux";
-import { oktaConfig } from "./utils/oktaConfig"
-import { OktaAuth } from "@okta/okta-auth-js";
-import { Security, LoginCallback } from '@okta/okta-react';
-import LoginWidget from './components/Auth/LoginWidget';
-import { toRelativeUrl } from "@okta/okta-auth-js"
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client"
-
-const oktaAuth = new OktaAuth(oktaConfig);
 
 //apollo client
 const client = new ApolloClient({
